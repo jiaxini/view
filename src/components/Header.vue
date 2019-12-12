@@ -84,11 +84,11 @@
         <div class="navbar">
             <div class="ng">
 				<div class="menu">
-					<div class="menu_title">
+					<div class="menu_title" @click="show()">
 						全部商品分类
 						<span></span>
                     </div>
-					<ul>
+					<ul v-if="item">
                         <li v-for="(item, index) of items" :key="index" >
                             {{item.name}}{{index}}
                         </li>
@@ -108,8 +108,12 @@
 <script>
 export default {
     name: 'Header',
+    methods:{
+        show: () => this.item = !this.item
+    },
     data(){
         return {
+            item: true,
             pic: {
                 index: require('@/assets/index/index.png'),
                 down: require('@/assets/index/down.png'),
@@ -119,16 +123,16 @@ export default {
                 cart2: require('@/assets/index/shop_cart2.png')
             },
             items: [
-                {id:1, url:'shop_list.html',name: '面膜系列'},						
-                {id:2, url: "shop_list.html", name :"面霜系列"},
-				{id:3, url: "shop_list.html", name :"眼霜系列"},
-				{id:4, url: "shop_list.html", name :"BB霜系列"},
-				{id:5, url: "shop_list.html", name :"原液系列"},
-				{id:6, url: "shop_list.html", name :"乳液系列"},
-				{id:7, url: "shop_list.html", name :"精华素系列"},
-				{id:8, url: "shop_list.html", name :"洁面乳系列"},
-				{id:9, url: "shop_list.html", name :"爽肤水系列"},
-				{id:10, url: "shop_list.html", name :"面部润肤系列"}
+                {url:'shop_list.html', name: '面膜系列'},						
+                {url: "shop_list.html", name :"面霜系列"},
+				{url: "shop_list.html", name :"眼霜系列"},
+				{url: "shop_list.html", name :"BB霜系列"},
+				{url: "shop_list.html", name :"原液系列"},
+				{url: "shop_list.html", name :"乳液系列"},
+				{url: "shop_list.html", name :"精华素系列"},
+				{url: "shop_list.html", name :"洁面乳系列"},
+				{url: "shop_list.html", name :"爽肤水系列"},
+				{url: "shop_list.html", name :"面部润肤系列"}
             ]
         }
 
