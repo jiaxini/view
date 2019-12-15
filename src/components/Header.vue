@@ -111,7 +111,7 @@ export default {
     methods:{
         show: () => this.item = !this.item
     },
-    data(){
+    data:() => {
         return {
             item: true,
             pic: {
@@ -141,9 +141,6 @@ export default {
 </script>
 <style scoped>
 .top{ height: 30px; background: #efefef;}
-.ng{ width: 1200px; margin: 0 auto;}
-.middle{ height: 150px;}
-.navbar{ background: #339933; height: 40px; }
 .top>.ng>.left{ float: left; margin-left: 8px;}
 .top>.ng>.left>img{ float: left;margin-top: 6px;}
 .top>.ng>.left>span{ line-height: 30px; color: #999999;}
@@ -155,6 +152,14 @@ export default {
 .top>.ng>.right>a{ float: left; color: #999999; line-height: 30px;}
 .top>.ng>.right>a{ margin-left: 34px;}
 .top>.ng>.right>a:hover{ color: #339933;}
+
+.top>.ng>.right>.select{ line-height: 30px; float: left; position: relative; padding: 0 10px; display: block; z-index: 10;}
+.top>.ng>.right>.select:hover{ background: white;}
+.top>.ng>.right>.select:hover>a{ color: #339933;}
+.top>.ng>.right>.select>dd{ display: none; margin-left: -10px; top: 30px; position: absolute; width: 93px; text-align: center; background: white;}
+.top>.ng>.right>.select>dd>dl>a{ display: block; width: 93px; text-align: center;}
+
+.middle{ height: 150px;}
 .middle>.ng>.logo>a{float: left; line-height: 150px; }
 .middle>.ng>.search_box{ float: left; margin-left: 94px;}
 .middle>.ng>.search_box>.search{ margin-top: 48px}
@@ -162,30 +167,44 @@ export default {
 .middle>.ng>.search_box>.search>input::-webkit-input-placeholder{ color: #cccccc;}
 .middle>.ng>.search_box>.search>input::-moz-input-placeholder{ color: #666666;}
 .middle>.ng>.search_box>.search>input::-o-input-placeholder{ color: #666666;}
-.middle>.ng>.search_box>.search>input::input-placeholder{ color: #666666;}
+.middle>.ng>.search_box>.search>input::::input-placeholder{ color: #666666;}
 .middle>.ng>.search_box>.search>a{ line-height: 38px; text-align: center; float: left; width: 90px; height: 38px; background: #5a9321; color: white; font-size: 18px;}
+
 .middle>.ng>.search_box>ul>li{ display: inline-block; color: #999999; padding-left: 4px; padding-right: 4px;}
 .middle>.ng>.search_box>ul>li>a{ margin-right: 5px;}
+
 .middle>.ng>.shop_cart_box{ float: left; margin-left: 170px;}
 .middle>.ng>.shop_cart_box>.shop_cart{ margin-top: 48px; width: 166px; height: 36px; border: 1px solid #ff9933; position: relative;}
-.middle>.ng>.shop_cart_box>.shop_cart>a>.num{left: 120px; top: -22px; line-height: 30px; text-align: center; color: white; width: 30px; height: 30px; display: block; position: absolute; background: require('@/assets/index/shop_cart_num.png');}
+.middle>.ng>.shop_cart_box>.shop_cart>a>.num{left: 120px; top: -22px; line-height: 30px; text-align: center; color: white; width: 30px; height: 30px; display: block; position: absolute; background: require(@/assets/index/shop_cart_num.png);}
 .middle>.ng>.shop_cart_box>.shop_cart>a{ font-size: 18px; color: #ff9933; line-height: 36px;}
 .middle>.ng>.shop_cart_box>.shop_cart>a>img{ margin-left: 8px; float: left; margin-top: 5px;}
 .middle>.ng>.shop_cart_box>.shop_cart>a>span{ margin-left: 12px; float: left;}
+.navbar{ background: #339933; height: 40px; }
 .navbar>.ng{position: relative;}
-.navbar>.ng>.menu{cursor: pointer; width: 266px; height: 50px; background: require('@assets/index/menu.png'); position: absolute; top: -10px;}
+.navbar>.ng>.menu{cursor: pointer; width: 266px; height: 50px; background: require(@/assets/index/menu.png); position: absolute; top: -10px;}
 .navbar>.ng>.menu>.menu_title{width: 266px; height: 40px; line-height: 40px; cursor: pointer; position: absolute; bottom: 0; text-align: center; font-size: 18px; color: white;}
-.navbar>.ng>.menu>.menu_title>span{position: absolute; bottom: 10px; width: 15px; height: 15px; display: block; float: right; background: require('@/assets/index/right2.png') no-repeat; right: 15px;}
-.navbar>.ng>.menu:hover>.menu_title>span{position: absolute; bottom: 5px; width: 15px; height: 15px; display: block; float: right; background: require('@/assets/index/down2.png') no-repeat; right: 20px;}
+.navbar>.ng>.menu>.menu_title>span{position: absolute; bottom: 10px; width: 15px; height: 15px; display: block; float: right; background: require(@/assets/index/right2.png) no-repeat; right: 15px;}
+.navbar>.ng>.menu:hover>.menu_title>span{position: absolute; bottom: 5px; width: 15px; height: 15px; display: block; float: right; background: require(@/assets/index/down2.png) no-repeat; right: 20px;}
 .navbar>.ng>.menu>ul{z-index: 12; display: none; width: 249px; position: absolute; top: 50px; left: 9px;}
 .navbar>.ng>.menu>ul>li{ background: #FFFFFF; width: 249px; height: 60px; line-height: 60px; text-align: center; position: relative;}
 .navbar>.ng>.menu>ul>li>a{display: block; font-size: 20px; color: #666666;}
-.navbar>.ng>.menu>ul>li>a>span{position: absolute; bottom: 20px; width: 15px; height: 15px; display: block; float: right; background: require('@/assets/index/right.png') no-repeat; right: 7px;}
+.navbar>.ng>.menu>ul>li>a>span{position: absolute; bottom: 20px; width: 15px; height: 15px; display: block; float: right; background: require(@/assets/index/right.png) no-repeat; right: 7px;}
 .navbar>.ng>.menu>ul>li:hover{ background: #52c837;}
 .navbar>.ng>.menu>ul>li:hover>a{ color: white;}
-.navbar>.ng>.menu>ul>li:hover>a>span{position: absolute; bottom: 20px; width: 15px; height: 15px; display: block; float: right; background: require('@/assets/index/right2.png') no-repeat; right: 7px;}
+.navbar>.ng>.menu>ul>li:hover>a>span{position: absolute; bottom: 20px; width: 15px; height: 15px; display: block; float: right; background: require(@/assets/index/right2.png) no-repeat; right: 7px;}
 .navbar>.ng>.bar{margin-top: 10px; width: 700px; margin-left: 306px;}
 .navbar>.ng>.bar>a{display: block; float: left; font-size: 18px; text-align: center; width: 140px; height: 40px; line-height: 40px; color: white;}
 .navbar>.ng>.bar>a.on{ background: #268926;}
 .navbar>.ng>.bar>a:hover{ background: #268926;}
+
+.banner{ position: relative; height: 600px; width: 100%; text-align: center; z-index: 1; overflow: hidden; box-shadow: 0 10px 10px #666666;-webkit-box-shadow:inset 0 10px 10px #666666;  
+  -moz-box-shadow:inset 0 10px 10px #666666;  }
+.banner>.hd{ width: 100%; position: absolute; text-align: center; bottom: 12px; z-index: 11;}
+.banner>.hd>ul{ display: inline-block;}
+.banner>.hd>ul>li{ top: 0; width: 20px; height: 20px; border-radius: 50%; display: inline; float: left; margin: 0 5px; cursor: pointer; background: #8dd070;}
+.banner>.hd>ul>li.on{ background: #339933;}
+.banner>.bd{ text-align: center; position: absolute; width: 100%; height: 600px; z-index: 0;}
+.banner>.bd>ul>li{ width: 100%; height: 600px; position: absolute;overflow: hidden;}
+.banner>.bd>ul>li>a{ width: 1920px; height: 600px; position: absolute; left: 50%; margin-left: -960px;}
+.banner>.bd>ul>li>a>img{ display: block; margin: 0 auto; height: 600px;}
 </style>

@@ -1,0 +1,17 @@
+*{ margin: 0 ; padding: 0 ;}
+body,button,input,select,textarea{font:12px/2 Verdana, 微软雅黑, Helvetica, sans-serif;}
+a{ text-decoration: none}
+ul,li,ol,dl,dd{list-style: none;}
+img{border: none;}
+input{outline: none;}
+button,input,select,textarea{font-size:100%;}
+h1,h2,h3,h4,h5,h6{font-size:100%; font-weight: normal;}
+html,body{ color:#666666;}
+
+a:link,a:visited{ color: #999999; text-decoration:none; outline:none;}
+a:active{ star:expression(this.onFocus=this.blur());}
+a:hover{color:#268926;}
+button,input,select,textarea{font-size:100%; outline: none;}
+table{border-collapse:collapse;border-spacing:0;}
+
+.ng{ width: 1200px; margin: 0 auto;}
