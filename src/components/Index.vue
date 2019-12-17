@@ -1,4 +1,6 @@
 <template>
+	<div>
+		<Banner></Banner>
 		<div class="content">
 			<div class="ng">
 				<div class="today">
@@ -488,8 +490,10 @@
 				</ul>
 			</div>
 		</div>
+	</div>	
 </template>
 <script>
+import Banner from '@/components/Banner';
 export default {
     name: 'Index',
     data:() => {
@@ -540,7 +544,8 @@ export default {
                 tb5: require('@/assets/index/tb5.png'),
             }
         }
-    }
+	},
+	components: {Banner}
 }
 </script>
 <style scoped>
