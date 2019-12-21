@@ -6,12 +6,12 @@
 					<img :src="pic.index" />
 					<span>加西妮首页</span>
 					<span>欢迎来到加西妮商城</span>
-					<span><a href="login.html">请登录</a></span>
-					<span><a href="register.html">免费注册</a></span>
+					<span><router-link to="login">请登录</router-link></span>
+					<span><router-link to="register">免费注册</router-link></span>
 				</div>
                 <div class="right">
 					<div class="select">
-						<a href="user.html">我的加西妮</a>
+						<router-link to="user">我的加西妮</router-link>
 						<img :src="pic.down" />
 						<dd>
 							<dl><a href="javascript:;">我的加西妮</a></dl>
@@ -19,10 +19,10 @@
 							<dl><a href="javascript:;">我的加西妮</a></dl>
 						</dd>
 					</div>
-					<a href="shop_cart.html">
+					<router-link to="cart">
 						<img :src="pic.cart1" />
 						<span>购物车0件</span>
-					</a>
+					</router-link>
 					<a href="javascript:;"> 
 						<img :src="pic.bookmarks" />
 						<span>收藏夹</span>
@@ -96,7 +96,7 @@
 				</div>
 				<div class="bar">
 					<a class="on" href="index.html">首页</a>
-					<a href="shop_list.html">精选商品</a>
+					<router-link to="shop">精选商品</router-link>
 					<a href="javascript:;">促销专区</a>
 					<a href="javascript:;">礼品专区</a>
 					<a href="javascript:;">积分商城</a>
@@ -167,7 +167,7 @@ export default {
 .middle>.ng>.search_box>.search>input::-webkit-input-placeholder{ color: #cccccc;}
 .middle>.ng>.search_box>.search>input::-moz-input-placeholder{ color: #666666;}
 .middle>.ng>.search_box>.search>input::-o-input-placeholder{ color: #666666;}
-.middle>.ng>.search_box>.search>input::::input-placeholder{ color: #666666;}
+.middle>.ng>.search_box>.search>input::input-placeholder{ color: #666666;}
 .middle>.ng>.search_box>.search>a{ line-height: 38px; text-align: center; float: left; width: 90px; height: 38px; background: #5a9321; color: white; font-size: 18px;}
 
 .middle>.ng>.search_box>ul>li{ display: inline-block; color: #999999; padding-left: 4px; padding-right: 4px;}
@@ -181,17 +181,17 @@ export default {
 .middle>.ng>.shop_cart_box>.shop_cart>a>span{ margin-left: 12px; float: left;}
 .navbar{ background: #339933; height: 40px; }
 .navbar>.ng{position: relative;}
-.navbar>.ng>.menu{cursor: pointer; width: 266px; height: 50px; background: require(@/assets/index/menu.png); position: absolute; top: -10px;}
+.navbar>.ng>.menu{cursor: pointer; width: 266px; height: 50px; background: url('../assets/index/menu.png'); position: absolute; top: -10px;}
 .navbar>.ng>.menu>.menu_title{width: 266px; height: 40px; line-height: 40px; cursor: pointer; position: absolute; bottom: 0; text-align: center; font-size: 18px; color: white;}
-.navbar>.ng>.menu>.menu_title>span{position: absolute; bottom: 10px; width: 15px; height: 15px; display: block; float: right; background: require(@/assets/index/right2.png) no-repeat; right: 15px;}
-.navbar>.ng>.menu:hover>.menu_title>span{position: absolute; bottom: 5px; width: 15px; height: 15px; display: block; float: right; background: require(@/assets/index/down2.png) no-repeat; right: 20px;}
+.navbar>.ng>.menu>.menu_title>span{position: absolute; bottom: 10px; width: 15px; height: 15px; display: block; float: right; background: url('../assets/index/right2.png') no-repeat; right: 15px;}
+.navbar>.ng>.menu:hover>.menu_title>span{position: absolute; bottom: 5px; width: 15px; height: 15px; display: block; float: right; background: url('../assets/index/down2.png') no-repeat; right: 20px;}
 .navbar>.ng>.menu>ul{z-index: 12; display: none; width: 249px; position: absolute; top: 50px; left: 9px;}
 .navbar>.ng>.menu>ul>li{ background: #FFFFFF; width: 249px; height: 60px; line-height: 60px; text-align: center; position: relative;}
 .navbar>.ng>.menu>ul>li>a{display: block; font-size: 20px; color: #666666;}
-.navbar>.ng>.menu>ul>li>a>span{position: absolute; bottom: 20px; width: 15px; height: 15px; display: block; float: right; background: require(@/assets/index/right.png) no-repeat; right: 7px;}
+.navbar>.ng>.menu>ul>li>a>span{position: absolute; bottom: 20px; width: 15px; height: 15px; display: block; float: right; background: url('../assets/index/right.png') no-repeat; right: 7px;}
 .navbar>.ng>.menu>ul>li:hover{ background: #52c837;}
 .navbar>.ng>.menu>ul>li:hover>a{ color: white;}
-.navbar>.ng>.menu>ul>li:hover>a>span{position: absolute; bottom: 20px; width: 15px; height: 15px; display: block; float: right; background: require(@/assets/index/right2.png) no-repeat; right: 7px;}
+.navbar>.ng>.menu>ul>li:hover>a>span{position: absolute; bottom: 20px; width: 15px; height: 15px; display: block; float: right; background: url('../assets/index/right2.png') no-repeat; right: 7px;}
 .navbar>.ng>.bar{margin-top: 10px; width: 700px; margin-left: 306px;}
 .navbar>.ng>.bar>a{display: block; float: left; font-size: 18px; text-align: center; width: 140px; height: 40px; line-height: 40px; color: white;}
 .navbar>.ng>.bar>a.on{ background: #268926;}

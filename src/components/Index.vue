@@ -550,7 +550,7 @@ export default {
 </script>
 <style scoped>
 .content>.ng>.today{ margin-top: 60px; margin-left: -1px; position: relative; width: 100%; border-top: 1px solid #cfcfcf; border-bottom: 1px solid #cfcfcf;}
-.content>.ng>.today>.caption{ width: 93px; height: 115px; position: absolute; top: 0; left: 0; background: require(@/assets/index/bt1.png);}
+.content>.ng>.today>.caption{ width: 93px; height: 115px; position: absolute; top: 0; left: 0; background: url('../assets/index/bt1.png');}
 .content>.ng>.today>.caption>span{ display: block; font-size: 24px; color: white; width: 50px; line-height: 30px; margin: 0 auto; margin-top: 14px;} 
 .content>.ng>.today>ul{ border-left: 1px solid #CFCFCF;overflow: hidden; margin-right: -1px;}
 .content>.ng>.today>ul>li{ background: #FFFFFF; float: left; border-right: 1px solid #CFCFCF; width: 299px; height: 298px;}

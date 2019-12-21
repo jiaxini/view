@@ -205,18 +205,18 @@
 						<h1>商家推荐</h1>
 						<ul>
 							<li>
-								<a href="pro_details.html">
+								<router-link to="Product">
 									<img :src="pic.pro_1" />
 									<span>¥51.00</span>
 									<p>韩束墨菊深度保湿氨基酸洁面乳150ml</p>
-								</a>
+								</router-link>
 							</li>
 							<li>
-								<a href="pro_details.html">
+								<router-link to="Product">
 									<img :src="pic.pro_2" />
 									<span>¥51.00</span>
 									<p>绿茶精萃保湿洁面膏 150ml</p>
-								</a>
+								</router-link>
 							</li>
 						</ul>
 					</div>
@@ -224,19 +224,19 @@
 						<h1>热卖商品</h1>
 						<ul>
 							<li>
-								<a href="pro_details.html">
+								<router-link to="Product">
 									<img :src="pic.pro_3" />
 									<span>¥51.00</span>
 									<p>珀莱雅水动力温和保湿洁面乳 </p>
 									<p>洗面奶女士保湿补水深层清洁防敏感 </p>
-								</a>
+								</router-link>
 							</li>
 							<li>
-								<a href="pro_details.html">
+								<router-link to="Product">
 									<img :src="pic.pro_4" />
 									<span>¥51.00</span>
 									<p>清润葡萄籽保湿护肤套装（洁面膏125ml+膜力水）</p>
-								</a>
+								</router-link>
 							</li>
 						</ul>
 					</div>
@@ -253,7 +253,7 @@
 					</ol>
 					<ul class="show">
 						<li>
-							<a href="pro_details.html">
+							<router-link to="Product">
 								<img :src="pic.pro_3" />
 								<p>
 									<span>¥51.00</span>	
@@ -263,15 +263,14 @@
 									珀莱雅水动力温和保湿洁面乳 <br />
 									洗面奶女士保湿补水深层清洁防敏感
 								</p>
-
-							</a>
+							</router-link>
 							<p>
 								<a href="shop_cart.html">加入购物车</a>
 								<a href="javascript:;">收藏</a>
 							</p>	
 						</li>
 						<li>
-							<a href="pro_details.html">
+							<router-link to="Product">
 								<img :src="pic.pro_1" />
 								<p>
 									<span>¥51.00</span>	
@@ -280,15 +279,14 @@
 								<p>
 									阜丰皙莲水润焕颜净颜乳氨基酸洗面奶温和洁面乳补水保湿卸妆控油清洁
 								</p>
-
-							</a>
+							</router-link>
 							<p>
 								<a href="shop_cart.html">加入购物车</a>
 								<a href="javascript:;">收藏</a>
 							</p>	
 						</li>
 						<li>
-							<a href="pro_details.html">
+							<router-link to="Product">
 								<img :src="pic.pro_5" />
 								<p>
 									<span>¥51.00</span>	
@@ -298,15 +296,14 @@
 									珀莱雅水动力温和保湿洁面乳  <br />
 									洗面奶女士保湿补水深层清洁防敏感
 								</p>
-
-							</a>
+							</router-link>
 							<p>
 								<a href="shop_cart.html">加入购物车</a>
 								<a href="javascript:;">收藏</a>
 							</p>	
 						</li>
 						<li>
-							<a href="pro_details.html">
+							<router-link to="Product">
 								<img :src="pic.pro_6" />
 								<p>
 									<span>¥51.00</span>	
@@ -315,8 +312,7 @@
 								<p>
 									韩束墨菊深度保湿氨基酸洁面乳150ml
 								</p>
-
-							</a>
+							</router-link>
 							<p>
 								<a href="shop_cart.html">加入购物车</a>
 								<a href="javascript:;">收藏</a>
@@ -324,7 +320,7 @@
 						</li>
 						
 						<li>
-							<a href="pro_details.html">
+							<router-link to="Product">
 								<img :src="pic.pro_3" />
 								<p>
 									<span>¥51.00</span>	
@@ -334,15 +330,14 @@
 									珀莱雅水动力温和保湿洁面乳 <br />
 									洗面奶女士保湿补水深层清洁防敏感
 								</p>
-
-							</a>
+							</router-link>
 							<p>
 								<a href="shop_cart.html">加入购物车</a>
 								<a href="javascript:;">收藏</a>
 							</p>	
 						</li>
 						<li>
-							<a href="pro_details.html">
+							<router-link to="Product">
 								<img :src="pic.pro_1" />
 								<p>
 									<span>¥51.00</span>	
@@ -351,15 +346,14 @@
 								<p>
 									阜丰皙莲水润焕颜净颜乳氨基酸洗面奶温和洁面乳补水保湿卸妆控油清洁
 								</p>
-
-							</a>
+							</router-link>
 							<p>
 								<a href="shop_cart.html">加入购物车</a>
 								<a href="javascript:;">收藏</a>
 							</p>	
 						</li>
 						<li>
-							<a href="pro_details.html">
+							<router-link to="Product">
 								<img :src="pic.pro_5" />
 								<p>
 									<span>¥51.00</span>	
@@ -369,15 +363,14 @@
 									珀莱雅水动力温和保湿洁面乳  <br />
 									洗面奶女士保湿补水深层清洁防敏感
 								</p>
-
-							</a>
+							</router-link>
 							<p>
 								<a href="shop_cart.html">加入购物车</a>
 								<a href="javascript:;">收藏</a>
 							</p>	
 						</li>
 						<li>
-							<a href="pro_details.html">
+							<router-link to="Product">
 								<img :src="pic.pro_6" />
 								<p>
 									<span>¥51.00</span>	
@@ -387,7 +380,7 @@
 									韩束墨菊深度保湿氨基酸洁面乳150ml
 								</p>
 
-							</a>
+							</router-link>
 							<p>
 								<a href="shop_cart.html">加入购物车</a>
 								<a href="javascript:;">收藏</a>
@@ -395,7 +388,7 @@
 						</li>
 						
 						<li>
-							<a href="pro_details.html">
+							<router-link to="Product">
 								<img :src="pic.pro_3" />
 								<p>
 									<span>¥51.00</span>	
@@ -405,15 +398,14 @@
 									珀莱雅水动力温和保湿洁面乳 <br />
 									洗面奶女士保湿补水深层清洁防敏感
 								</p>
-
-							</a>
+							</router-link>
 							<p>
 								<a href="shop_cart.html">加入购物车</a>
 								<a href="javascript:;">收藏</a>
 							</p>	
 						</li>
 						<li>
-							<a href="pro_details.html">
+							<router-link to="Product">
 								<img :src="pic.pro_1" />
 								<p>
 									<span>¥51.00</span>	
@@ -423,14 +415,14 @@
 									阜丰皙莲水润焕颜净颜乳氨基酸洗面奶温和洁面乳补水保湿卸妆控油清洁
 								</p>
 
-							</a>
+							</router-link>
 							<p>
 								<a href="shop_cart.html">加入购物车</a>
 								<a href="javascript:;">收藏</a>
 							</p>	
 						</li>
 						<li>
-							<a href="pro_details.html">
+							<router-link to="Product">
 								<img :src="pic.pro_5" />
 								<p>
 									<span>¥51.00</span>	
@@ -441,14 +433,14 @@
 									洗面奶女士保湿补水深层清洁防敏感
 								</p>
 
-							</a>
+							</router-link>
 							<p>
 								<a href="shop_cart.html">加入购物车</a>
 								<a href="javascript:;">收藏</a>
 							</p>	
 						</li>
 						<li>
-							<a href="pro_details.html">
+							<router-link to="Product">
 								<img :src="pic.pro_6" />
 								<p>
 									<span>¥51.00</span>	
@@ -458,7 +450,7 @@
 									韩束墨菊深度保湿氨基酸洁面乳150ml
 								</p>
 
-							</a>
+							</router-link>
 							<p>
 								<a href="shop_cart.html">加入购物车</a>
 								<a href="javascript:;">收藏</a>
@@ -466,7 +458,7 @@
 						</li>
 						
 						<li>
-							<a href="pro_details.html">
+							<router-link to="Product">
 								<img :src="pic.pro_3" />
 								<p>
 									<span>¥51.00</span>	
@@ -477,14 +469,14 @@
 									洗面奶女士保湿补水深层清洁防敏感
 								</p>
 
-							</a>
+							</router-link>
 							<p>
 								<a href="shop_cart.html">加入购物车</a>
 								<a href="javascript:;">收藏</a>
 							</p>	
 						</li>
 						<li>
-							<a href="pro_details.html">
+							<router-link to="Product">
 								<img :src="pic.pro_1" />
 								<p>
 									<span>¥51.00</span>	
@@ -494,14 +486,14 @@
 									阜丰皙莲水润焕颜净颜乳氨基酸洗面奶温和洁面乳补水保湿卸妆控油清洁
 								</p>
 
-							</a>
+							</router-link>
 							<p>
 								<a href="shop_cart.html">加入购物车</a>
 								<a href="javascript:;">收藏</a>
 							</p>	
 						</li>
 						<li>
-							<a href="pro_details.html">
+							<router-link to="Product">
 								<img :src="pic.pro_5" />
 								<p>
 									<span>¥51.00</span>	
@@ -512,14 +504,14 @@
 									洗面奶女士保湿补水深层清洁防敏感
 								</p>
 
-							</a>
+							</router-link>
 							<p>
 								<a href="shop_cart.html">加入购物车</a>
 								<a href="javascript:;">收藏</a>
 							</p>	
 						</li>
 						<li>
-							<a href="pro_details.html">
+							<router-link to="Product">
 								<img :src="pic.pro_6" />
 								<p>
 									<span>¥51.00</span>	
@@ -529,7 +521,7 @@
 									韩束墨菊深度保湿氨基酸洁面乳150ml
 								</p>
 
-							</a>
+							</router-link>
 							<p>
 								<a href="shop_cart.html">加入购物车</a>
 								<a href="javascript:;">收藏</a>
@@ -542,7 +534,7 @@
 					<ul></ul>
 					
 					<div class="page">
-						<a href="javascript:;"><</a>
+						<a href="javascript:;"></a>
 						<a href="javascript:;">1</a>
 						<a class="here" href="javascript:;">2</a>
 						<a href="javascript:;">3</a>
@@ -600,7 +592,7 @@ export default {
 .content>.ng>.screen>.brand>.brand_middle>a.green{ color: #339933;}
 .content>.ng>.screen>.brand>.brand_right{ float: right;}
 .content>.ng>.screen>.brand>.brand_right>a{ color: #666666; float: left; display: block; width: 66px; height: 24px; line-height: 24px; text-align: center; border: 1px solid #d2d2d2; font-size: 16px; margin-right: 10px; margin-top: 12px;}
-.content>.ng>.screen>.brand>.brand_right>.more{ text-align: left; padding-left: 10px; width: 56px; background: require(@/assets/shop_list/down.png) no-repeat 46px;}
+.content>.ng>.screen>.brand>.brand_right>.more{ text-align: left; padding-left: 10px; width: 56px; background: url('../assets/shop_list/down.png') no-repeat 46px;}
 .content>.ng>.screen>.price{ overflow: hidden;}
 .content>.ng>.screen>.price>.price_left{ margin-left: 10px; float: left; width: 120px; font-size: 18px; color: #333333; line-height: 50px;}
 .content>.ng>.screen>.price>.price_middle{ float: left;}
