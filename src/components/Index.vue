@@ -485,7 +485,6 @@
 							<h2><a href="javascript:;">售后无忧</a></h2>
 							<p>七天放心退货，运费有保</p>
 						</div>
-						
 					</li>
 				</ul>
 			</div>
@@ -494,6 +493,7 @@
 </template>
 <script>
 import Banner from '@/components/Banner';
+import { G } from '@/common/Http';
 export default {
     name: 'Index',
     data:() => {
@@ -545,7 +545,12 @@ export default {
             }
         }
 	},
-	components: {Banner}
+	components: {Banner},
+	mounted() {
+	//  请求测试
+	   console.log(G("user1", {}));
+	   console.log(G("user2"))
+	},
 }
 </script>
 <style scoped>

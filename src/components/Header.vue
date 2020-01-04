@@ -205,7 +205,7 @@ export default {
   -moz-box-shadow:inset 0 10px 10px #666666;  }
 .banner>.hd{ width: 100%; position: absolute; text-align: center; bottom: 12px; z-index: 11;}
 .banner>.hd>ul{ display: inline-block;}
-.banner>.hd>ul>li{ top: 0; width: 20px; height: 20px; border-radius: 50%; display: inline; float: left; margin: 0 5px; cursor: pointer; background: #8dd070;}
+/* .banner>.hd>ul>li{ top: 0; width: 20px; height: 20px; border-radius: 50%; display: inline; float: left; margin: 0 5px; cursor: pointer; background: #8dd070;} */
 .banner>.hd>ul>li.on{ background: #339933;}
 .banner>.bd{ text-align: center; position: absolute; width: 100%; height: 600px; z-index: 0;}
 .banner>.bd>ul>li{ width: 100%; height: 600px; position: absolute;overflow: hidden;}
