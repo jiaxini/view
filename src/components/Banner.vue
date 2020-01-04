@@ -1,20 +1,20 @@
 <template>
- 			<div class="banner">
-				<div class="hd">
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</div>
-				<div class="bd">
-					<ul>
-						<li><a href="pro_details.html"><img :src="pic.banner" /> </a></li>
-						<li><a href="pro_details.html"><img :src="pic.banner2" /> </a></li>
-						<li><a href="pro_details.html"><img :src="pic.banner3" /> </a></li>
-					</ul>
-				</div>
-			</div> 
+ 	<div class="banner" @mouseenter="stop()" @mouseleave="show()">
+		<div class="hd">
+			<ul>
+				<li @click="currentIndex = 0" :class="currentIndex == 0 ? 'on' : ''"></li>
+				<li @click="currentIndex = 1" :class="currentIndex == 1 ? 'on' : ''"></li>
+				<li @click="currentIndex = 2" :class="currentIndex == 2 ? 'on' : ''"></li>
+			</ul>
+		</div>
+		<div class="bd">
+			<ul>
+				<li v-show="currentIndex == 0"><a href="pro_details.html"><img :src="pic.banner" /> </a></li>
+				<li v-show="currentIndex == 1"><a href="pro_details.html"><img :src="pic.banner1" /> </a></li>
+				<li v-show="currentIndex == 2"><a href="pro_details.html"><img :src="pic.banner2" /> </a></li>
+			</ul>
+		</div>
+	</div> 
 </template>
 
 <script>
@@ -26,9 +26,28 @@ export default {
                 banner: require('@/assets/index/banner.png'),
                 banner1: require('@/assets/index/banner2.png'),
                 banner2: require('@/assets/index/banner3.png'),
-            }
+			},
+			setintervalId: null,
+			currentIndex: 0
         }
-    }
+    },
+	mounted() {
+		this.show();
+	},
+	methods: {
+		show: function(){
+			this.setintervalId = setInterval(()=>{
+				if(this.currentIndex == 2){
+					this.currentIndex = 0;
+				}else{
+					this.currentIndex++;
+				}
+			}, 3000);
+		},
+		stop: function(){
+			clearInterval(this.setintervalId);
+		}
+	}
 }
 </script>
 

@@ -10,13 +10,13 @@
 					<span><router-link to="register">免费注册</router-link></span>
 				</div>
                 <div class="right">
-					<div class="select">
-						<router-link to="user">我的加西妮</router-link>
+					<div class="select" @mouseenter="flag.select = true" @mouseleave="flag.select = false">
+						<span >我的加西妮</span >
 						<img :src="pic.down" />
-						<dd>
-							<dl><a href="javascript:;">我的加西妮</a></dl>
-							<dl><a href="javascript:;">我的加西妮</a></dl>
-							<dl><a href="javascript:;">我的加西妮</a></dl>
+						<dd v-show="flag.select">
+							<dl><router-link to="user">我的加西妮</router-link></dl>
+							<dl><router-link to="user">我的加西妮</router-link></dl>
+							<dl><router-link to="user">我的加西妮</router-link></dl>
 						</dd>
 					</div>
 					<router-link to="cart">
@@ -83,14 +83,14 @@
         </div>
         <div class="navbar">
             <div class="ng">
-				<div class="menu">
+				<div class="menu" @mouseenter="flag.menu = true" @mouseleave="flag.menu = false">
 					<div class="menu_title" @click="show()">
 						全部商品分类
 						<span></span>
                     </div>
-					<ul v-if="item">
+					<ul v-if="item" v-show="flag.menu">
                         <li v-for="(item, index) of items" :key="index" >
-                            {{item.name}}{{index}}
+                            <a href="">{{item.name}}<span></span></a>
                         </li>
 					</ul>
 				</div>
@@ -113,6 +113,10 @@ export default {
     },
     data:() => {
         return {
+            flag: {
+                select: false,
+                menu: false
+            },
             item: true,
             pic: {
                 index: require('@/assets/index/index.png'),
@@ -156,7 +160,7 @@ export default {
 .top>.ng>.right>.select{ line-height: 30px; float: left; position: relative; padding: 0 10px; display: block; z-index: 10;}
 .top>.ng>.right>.select:hover{ background: white;}
 .top>.ng>.right>.select:hover>a{ color: #339933;}
-.top>.ng>.right>.select>dd{ display: none; margin-left: -10px; top: 30px; position: absolute; width: 93px; text-align: center; background: white;}
+.top>.ng>.right>.select>dd{ margin-left: -10px; top: 30px; position: absolute; width: 93px; text-align: center; background: white;}
 .top>.ng>.right>.select>dd>dl>a{ display: block; width: 93px; text-align: center;}
 
 .middle{ height: 150px;}
@@ -185,7 +189,7 @@ export default {
 .navbar>.ng>.menu>.menu_title{width: 266px; height: 40px; line-height: 40px; cursor: pointer; position: absolute; bottom: 0; text-align: center; font-size: 18px; color: white;}
 .navbar>.ng>.menu>.menu_title>span{position: absolute; bottom: 10px; width: 15px; height: 15px; display: block; float: right; background: url('../assets/index/right2.png') no-repeat; right: 15px;}
 .navbar>.ng>.menu:hover>.menu_title>span{position: absolute; bottom: 5px; width: 15px; height: 15px; display: block; float: right; background: url('../assets/index/down2.png') no-repeat; right: 20px;}
-.navbar>.ng>.menu>ul{z-index: 12; display: none; width: 249px; position: absolute; top: 50px; left: 9px;}
+.navbar>.ng>.menu>ul{z-index: 12; width: 249px; position: absolute; top: 50px; left: 9px;}
 .navbar>.ng>.menu>ul>li{ background: #FFFFFF; width: 249px; height: 60px; line-height: 60px; text-align: center; position: relative;}
 .navbar>.ng>.menu>ul>li>a{display: block; font-size: 20px; color: #666666;}
 .navbar>.ng>.menu>ul>li>a>span{position: absolute; bottom: 20px; width: 15px; height: 15px; display: block; float: right; background: url('../assets/index/right.png') no-repeat; right: 7px;}
