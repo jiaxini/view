@@ -19,58 +19,23 @@
 				</div>
 				<div class="news">
 					<ol class="news_title">
-						<li class="active">新品上架</li>
-						<li>猜你喜欢</li>
-						<li>热卖推荐</li>
-						<li>限时特卖</li>
+						<li :class="newsSelected.num == item.Id ? 'active' : ''" v-for='item in news' :key="item.Id">{{item.Name}}</li>
 					</ol>
 					<ul class="news_cont show">
-						<li>
+						<li v-for="product in newsSelected.products" :key="product.Id">
 							<a href="pro_details.html">
-								<img :src="pic.news1" />
+								<img :src="product.Pic" />
 								<p>
-									<span>奇焕光感粉嫩透亮修颜霜</span>
+									<span>{{product.Title}}</span>
 									<span>嫩粉色 30ml</span>
 								</p>
-								<span>￥79</span>
-							</a>
-						</li>
-						<li>
-							<a href="pro_details.html">
-								<img :src="pic.news2" />
-								<p>
-									<span>巨遮瑕雾感轻垫霜</span>
-									<span>象牙色 14g</span>
-								</p>
-								<span>￥79</span>
-							</a>
-						</li>
-						<li>
-							<a href="pro_details.html">
-								<img :src="pic.news3" />
-								<p>
-									<span>玻尿酸精华原液 25ml</span>
-								</p>
-								<span>￥79</span>
-							</a>
-						</li>
-						<li>
-							<a href="pro_details.html">
-								<img :src="pic.news4" />
-								<p>
-									<span>韦博士灵芝焕能精华素 50ml</span>
-								</p>
-								<span>￥79</span>
+								<span>￥{{product.Price}}</span>
 							</a>
 						</li>
 					</ul>
-					<ul class="like"></ul>
-					<ul class="hot"></ul>
-					<ul class="limit"></ul>
-					
 					<div class="advertisement">
 						<a href="pro_details.html">
-							<img :src="pic.gg" />
+							<img :src="newsSelected.cover" />
 						</a>
 					</div>
 				</div>
@@ -92,7 +57,7 @@
 									<a href="pro_details.html">
 										<p>
 											<span>{{product.Title}}</span>
-											<span>￥{{product.Price}}<span>￥{{product.Price}}</span></span>
+											<span>￥{{product.Price}}</span>
 										</p>
 										<img :src="product.Pic" />
 									</a>
@@ -160,58 +125,27 @@
 <script>
 import Banner from '@/components/Banner';
 import { G } from '@/common/Http';
-import { recommend, floor } from '@/common/Api'
+import { recommend, floor, news } from '@/common/Api'
 export default {
     name: 'Index',
     data:() => {
          return {
 			recommends:[],
 			floors: [],
-            pic: {
-                td1: require('@/assets/index/td1.png'),
-                td2: require('@/assets/index/td2.png'),
-                td3: require('@/assets/index/td3.png'),
-                td4: require('@/assets/index/td4.png'),
-                news1: require('@/assets/index/news1.png'),
-                news2: require('@/assets/index/news2.png'),
-                news3: require('@/assets/index/news3.png'),
-                news4: require('@/assets/index/news4.png'),
-                gg: require('@/assets/index/gg.png'),
-                F1: require('@/assets/index/F1.png'),
-                F1_1: require('@/assets/index/1F-1.png'),
-                F1_2: require('@/assets/index/1F-2.png'),
-                F1_3: require('@/assets/index/1F-3.png'),
-                F1_4: require('@/assets/index/1F-4.png'),
-                F2: require('@/assets/index/F2.png'),
-                F2_1: require('@/assets/index/2F-1.png'),
-                F2_2: require('@/assets/index/2F-2.png'),
-                F2_3: require('@/assets/index/2F-3.png'),
-                F2_4: require('@/assets/index/2F-4.png'),
-                F2_5: require('@/assets/index/2F-5.png'),
-                F3: require('@/assets/index/F3.png'),
-                F3_1: require('@/assets/index/3F-1.png'),
-                F3_2: require('@/assets/index/3F-2.png'),
-                F3_3: require('@/assets/index/3F-3.png'),
-                F3_4: require('@/assets/index/3F-4.png'),
-                F3_5: require('@/assets/index/3F-5.png'),                
-                F4: require('@/assets/index/F4.png'),
-                F4_1: require('@/assets/index/4F-1.png'),
-                F4_2: require('@/assets/index/4F-2.png'),
-                F4_3: require('@/assets/index/4F-3.png'),
-                F4_4: require('@/assets/index/4F-4.png'),
-                F4_5: require('@/assets/index/4F-5.png'),
-                F5: require('@/assets/index/F5.png'),
-                F5_1: require('@/assets/index/5F-1.png'),
-                F5_2: require('@/assets/index/5F-2.png'),
-                F5_3: require('@/assets/index/5F-3.png'),
-                F5_4: require('@/assets/index/5F-4.png'),
-                F5_5: require('@/assets/index/5F-5.png'),
-                tb1: require('@/assets/index/tb1.png'),
-                tb2: require('@/assets/index/tb2.png'),
-                tb3: require('@/assets/index/tb3.png'),
-                tb4: require('@/assets/index/tb4.png'),
-                tb5: require('@/assets/index/tb5.png'),
-            }
+			news:[],
+			newsSelected: {
+				num: 1,
+				products: [],
+				cover: ''
+			},
+			pic:{
+				tb1: require('@/assets/index/tb1.png'),
+				tb2: require('@/assets/index/tb2.png'),
+				tb3: require('@/assets/index/tb3.png'),
+				tb4: require('@/assets/index/tb4.png'),
+				tb5: require('@/assets/index/tb5.png'),
+			}
+			
         }
 	},
 	components: {Banner},
@@ -229,8 +163,14 @@ export default {
 				this.floors = data.data
 			}
 		})
+		news.then(data =>{
+			if(data.status == 200){
+				this.news = data.data
+				this.newsSelected.products = data.data[1].Products
+				this.newsSelected.cover = data.data[1].Cover
+			}
+		})
 	}
-
 }
 </script>
 <style scoped>
@@ -261,7 +201,7 @@ export default {
 .content>.ng>.news>.news_cont>li>a>img{ height: 150px; display: block; margin: 0 auto; margin-top: 48px; margin-bottom: 40px;}
 .content>.ng>.news>.news_cont>li>a>p{ font-size: 16px; color: #666666; height: 50px;}
 .content>.ng>.news>.news_cont>li>a>p>span{ display: block; line-height: 26px;}
-.content>.ng>.news>.news_cont>li>a>span{ display: block; margin-top: 10px; font-size: 16px; font-weight: bold; color: #ff9900; }
+.content>.ng>.news>.news_cont>li>a>span{ display: block; margin-top: 10px;padding-top: 10px; font-size: 16px; font-weight: bold; color: #ff9900; }
 .content>.ng>.news>.advertisement>a{ float: right;}
 .content>.ng>.news>.advertisement>a>img{ display: block; margin-top: -50px;}
 
