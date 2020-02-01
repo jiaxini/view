@@ -8,32 +8,11 @@
 						<span>今日推荐</span>
 					</div>
 					<ul>
-						<li>
+						<li v-for="recommend in recommends" :key='recommend.Id'>
 							<a href="pro_details.html">
-								<img :src="pic.td1" /> 
-								<p>松露水润雪肌面膜贴25g*28片</p>
-								<span>￥129</span>
-							</a>
-						</li>
-						<li>
-							<a href="pro_details.html">
-								<img :src="pic.td2" />
-								<p>隐形水润面膜25g*24片</p>
-								<span>￥129</span>
-							</a>
-						</li>
-						<li>
-							<a href="pro_details.html">
-								<img :src="pic.td3" /> 
-								<p>智能愉悦臻白日霜15ml</p>
-								<span>￥129</span>
-							</a>
-						</li>
-						<li>
-							<a href="pro_details.html">
-								<img :src="pic.td4" />
-								<p>松露水润雪肌面膜贴25g*28片</p>
-								<span>￥129</span>
+								<img :src="recommend.Pic" /> 
+								<p>{{recommend.Title}}</p>
+								<span>￥{{recommend.Price}}</span>
 							</a>
 						</li>
 					</ul>
@@ -95,347 +74,34 @@
 						</a>
 					</div>
 				</div>
-				<div class="mask">
+
+				<div class="mask" v-for="floor in floors" :key='floor.Id'>
 					<div class="mask_title">
-						<span>1F</span>
-						<span>面膜/面霜</span>
-						<span>Mask/Face cream</span>
+						<span>{{floor.Num}}F</span>
+						<span>{{floor.Name}}</span>
+						<span>{{floor.Ename}}</span>
 						<a href="shop_list.html">进入专区 ></a>
 					</div>
 					<div class="mask_cont">
 						<div class="advertising">
-							<a href="pro_details.html"><img :src="pic.F1" /></a>
+							<a href="pro_details.html"><img :src="floor.Cover" /></a>
 						</div>
 						<div class="mask_list">
 							<ul>
-								<li>
+								<li v-for="product in floor.Products" :key='product.Id'>
 									<a href="pro_details.html">
 										<p>
-											<span>松露水润雪肌面膜贴25g*28片</span>
-											<span>￥79 <span>￥149</span></span>
+											<span>{{product.Title}}</span>
+											<span>￥{{product.Price}}<span>￥{{product.Price}}</span></span>
 										</p>
-										<img :src="pic.F1_1" />
-									</a>
-								</li>
-								
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F1_2" />
-										<span>智能愉悦臻白日霜15ml</span>
-										<span>￥79 <span>￥149</span></span>
-									</a>
-								</li>
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F1_3" />
-										<span>燕窝补水面膜23gx7片</span>
-										<span>￥79 <span>￥149</span></span>
-									</a>
-								</li>							
-								
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F1_4" />
-										<span>智能愉悦臻白日霜15ml</span>
-										<span>￥79 <span>￥149</span></span>
-									</a>
-								</li>
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F1_3" />
-										<span>燕窝补水面膜23gx7片</span>
-										<span>￥79 <span>￥149</span></span>
-									</a>
-								</li>
-							
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F1_1" />
-										<p>
-											<span>松露水润雪肌面膜贴25g*28片</span>
-											<span>￥79 <span>￥149</span></span>
-										</p>										
+										<img :src="product.Pic" />
 									</a>
 								</li>
 							</ul>								
-							
 						</div>
 					</div>
 				</div>
-				
-				<div class="eye">
-					<div class="eye_title">
-						<span>2F</span>
-						<span>眼霜/BB霜</span>
-						<span>Eye cream/BB cream</span>
-						<a href="shop_list.html">进入专区 ></a>
-					</div>
-					<div class="eye_cont">
-						<div class="advertising">
-							<a href="pro_details.html"><img :src="pic.F2" /></a>
-						</div>
-						<div class="eye_list">
-							<ul>
-								<li>
-									<a href="pro_details.html">
-										<p>
-											<span>奇焕光感粉嫩透亮修颜霜 嫩粉色 30ml</span>
-											<span>￥79 <span>￥149</span></span>
-										</p>
-										<img :src="pic.F2_1" />
-									</a>
-								</li>
 
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F2_2" />
-										<span>环采臻皙炫亮霜30g</span>
-										<span>￥79 <span>￥149</span></span>
-									</a>
-								</li>
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F2_3" />
-										<span>极光无暇闪耀气垫21号</span>
-										<span>￥79 <span>￥149</span></span>
-									</a>
-								</li>
-
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F2_4" />
-										<span>巨遮瑕雾感轻垫霜象牙色 14g</span>
-										<span>￥79 <span>￥149</span></span>
-									</a>
-								</li>
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F2_5" />
-										<span>密集焕白防护修颜乳 <br /> SPF30 PA++ 30ml</span>											
-										<span>￥79 <span>￥149</span></span>
-									</a>
-								</li>
-						
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F2_1" />
-										<p>
-											<span>奇焕光感粉嫩透亮修颜霜 嫩粉色 30ml</span>
-											<span>￥79 <span>￥149</span></span>
-										</p>										
-									</a>
-								</li>
-							</ul>
-	
-					
-						</div>
-					</div>
-				</div>
-				
-				<div class="latex">
-					<div class="latex_title">
-						<span>3F</span>
-						<span>原液/乳液</span>
-						<span>Concentrate/Emulsion</span>
-						<a href="shop_list.html">进入专区 ></a>
-					</div>
-					<div class="latex_cont">
-						<div class="advertising">
-							<a href="pro_details.html"><img :src="pic.F3" /></a>
-						</div>
-						<div class="latex_list">
-							<ul>
-								<li>
-									<a href="pro_details.html">
-										<p>
-											<span>精华肌底液100ml</span>
-											<span>￥79 <span>￥149</span></span>
-										</p>
-										<img :src="pic.F3_1" />
-									</a>
-								</li>
-
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F3_2" />
-										<span>新精华肌底液5ml</span>
-										<span>￥79 <span>￥149</span></span>
-									</a>
-								</li>
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F3_3" />
-										<span>肌初赋活抚痕眼部精华液20ml</span>
-										<span>￥79 <span>￥149</span></span>
-									</a>
-								</li>
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F3_4" />
-										<span>玻尿酸精华原液 25ml</span>
-										<span>￥79 <span>￥149</span></span>
-									</a>
-								</li>
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F3_5" />
-										<span>甘草萃取液</span>
-										<span>￥79 <span>￥149</span></span>
-									</a>
-								</li>
-								
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F3_1" />
-										<p>
-											<span>精华肌底液100ml</span>
-											<span>￥79 <span>￥149</span></span>
-										</p>										
-									</a>
-								</li>
-							</ul>
-						
-								
-							
-						</div>
-					</div>
-				</div>
-				
-				<div class="cream">
-					<div class="cream_title">
-						<span>4F</span>
-						<span>精华素/洁面乳	</span>
-						<span>Essence/Cleanser</span>
-						<a href="shop_list.html">进入专区 ></a>
-					</div>
-					<div class="cream_cont">
-						<div class="advertising">
-							<a href="pro_details.html"><img :src="pic.F4" /></a>
-						</div>
-						<div class="cream_list">
-							<ul>
-								<li>
-									<a href="pro_details.html">
-										<p>
-											<span>墨菊深度补水奢养礼盒</span>
-											<span>￥79 <span>￥149</span></span>
-										</p>
-										<img :src="pic.F4_1" />
-									</a>
-								</li>
-								
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F4_2" />
-										<span>幻时抗皱精华素 18g</span>
-										<span>￥79 <span>￥149</span></span>
-									</a>
-								</li>
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F4_3" />
-										<span>抗皱精华素15ml</span>
-										<span>￥79 <span>￥149</span></span>
-									</a>
-								</li>
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F4_4" />
-										<span>韦博士灵芝焕能精华素 50ml</span>
-										<span>￥79 <span>￥149</span></span>
-									</a>
-								</li>
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F4_5" />
-										<span>抗痘控油洁面膏 80g</span>
-										<span>￥79 <span>￥149</span></span>
-									</a>
-								</li>
-							
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F4_1" />
-										<p>
-											<span>墨菊深度补水奢养礼盒</span>
-											<span>￥79 <span>￥149</span></span>
-										</p>										
-									</a>
-								</li>
-							</ul>							
-							
-						</div>
-					</div>
-				</div>
-				
-				<div class="water">
-					<div class="water_title">
-						<span>5F</span>
-						<span>爽肤水/面部润肤</span>
-						<span>Toner/Facial skin</span>
-						<a href="shop_list.html">进入专区 ></a>
-					</div>
-					<div class="water_cont">
-						<div class="advertising">
-							<a href="pro_details.html"><img :src="pic.F5" /></a>
-						</div>
-						<div class="water_list">
-							<ul>
-								<li>
-									<a href="pro_details.html">
-										<p>
-											<span>绿茶精萃平衡护肤二重套装</span>
-											<span>￥79 <span>￥149</span></span>
-										</p>
-										<img :src="pic.F5_1" />
-									</a>
-								</li>
-								
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F5_2" />
-										<span>盈润平衡保湿水</span>
-										<span>￥79 <span>￥149</span></span>
-									</a>
-								</li>
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F5_3" />
-										<span>大米调理持久保湿水150ml</span>
-										<span>￥79 <span>￥149</span></span>
-									</a>
-								</li>
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F5_4" />
-										<span>复颜清乳柔肤水175ml</span>
-										<span>￥79 <span>￥149</span></span>
-									</a>
-								</li>
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F5_5" />
-										<span>蜂蜜活颜保湿水</span>
-										<span>￥79 <span>￥149</span></span>
-									</a>
-								</li>
-								
-								<li>
-									<a href="pro_details.html">
-										<img :src="pic.F5_1" />
-										<p>
-											<span>绿茶精萃平衡护肤二重套装</span>
-											<span>￥79 <span>￥149</span></span>
-										</p>										
-									</a>
-								</li>
-							
-							</ul>
-															
-						</div>
-					</div>
-				</div>
-				
 				<ul class="service">
 					<li>
 						<a href="javascript:;">
@@ -494,10 +160,13 @@
 <script>
 import Banner from '@/components/Banner';
 import { G } from '@/common/Http';
+import { recommend, floor } from '@/common/Api'
 export default {
     name: 'Index',
     data:() => {
          return {
+			recommends:[],
+			floors: [],
             pic: {
                 td1: require('@/assets/index/td1.png'),
                 td2: require('@/assets/index/td2.png'),
@@ -546,11 +215,22 @@ export default {
         }
 	},
 	components: {Banner},
-	mounted() {
-	//  请求测试
-	   console.log(G("user1", {}));
-	   console.log(G("user2"))
+	created(){
+
 	},
+	mounted(){
+		recommend.then(data => {
+			if(data.status == 200){
+				this.recommends = data.data
+			}
+		})
+		floor.then(data => {
+			if(data.status == 200){
+				this.floors = data.data
+			}
+		})
+	}
+
 }
 </script>
 <style scoped>
@@ -564,6 +244,7 @@ export default {
 .content>.ng>.today>ul>li>a>img{ display: block; width: 244px; height: 230px; margin: 0 auto;}
 .content>.ng>.today>ul>li>a>p{ color: #666666; font-size: 16px; line-height: 18px;}
 .content>.ng>.today>ul>li>a>span{ color: #ff9900; font-size: 18px;}
+
 .content>.ng>.news{overflow: hidden; width: 100%; margin-top: 60px;}
 .content>.ng>.news>ul{ margin-top: 6px; float: left; display: none;}
 .content>.ng>.news>ul.show{ display: block;}
@@ -583,6 +264,7 @@ export default {
 .content>.ng>.news>.news_cont>li>a>span{ display: block; margin-top: 10px; font-size: 16px; font-weight: bold; color: #ff9900; }
 .content>.ng>.news>.advertisement>a{ float: right;}
 .content>.ng>.news>.advertisement>a>img{ display: block; margin-top: -50px;}
+
 .content>.ng>.mask{ margin-top: 60px;}
 .content>.ng>.mask>.mask_title{ border-bottom: 2px solid #0099ff; margin-bottom: 6px;}
 .content>.ng>.mask>.mask_title>span:nth-child(1){ color: #0099FF; font-size: 30px; line-height: 32px;}
@@ -617,7 +299,6 @@ export default {
 .content>.ng>.mask>.mask_cont>.mask_list>ul>li:nth-child(3)>a>span{ display: block; margin: 0 auto; font-size: 16px;}
 .content>.ng>.mask>.mask_cont>.mask_list>ul>li:nth-child(3)>a>span:nth-child(3){ font-size: 16px; color: #FF9900; text-align: center; }
 .content>.ng>.mask>.mask_cont>.mask_list>ul>li:nth-child(3)>a>span:nth-child(3)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-
 .content>.ng>.mask>.mask_cont>.mask_list>ul>li:nth-child(4){ position: absolute; width: 226px; height: 268px; border: 1px solid #d7d7d7; top: 181px; left: 0; }
 .content>.ng>.mask>.mask_cont>.mask_list>ul>li:nth-child(4)>a{ width: 224px; height: 266px; text-align: center;}
 .content>.ng>.mask>.mask_cont>.mask_list>ul>li:nth-child(4)>a>span{ display: block; margin: 0 auto; font-size: 16px;}
@@ -628,7 +309,6 @@ export default {
 .content>.ng>.mask>.mask_cont>.mask_list>ul>li:nth-child(5)>a>span{ display: block; margin: 0 auto; font-size: 16px;}
 .content>.ng>.mask>.mask_cont>.mask_list>ul>li:nth-child(5)>a>span:nth-child(3){ font-size: 16px; color: #FF9900; text-align: center; }
 .content>.ng>.mask>.mask_cont>.mask_list>ul>li:nth-child(5)>a>span:nth-child(3)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-
 .content>.ng>.mask>.mask_cont>.mask_list>ul>li:nth-child(6){top: 271px; left: 454px; width: 457px; position: absolute; border: 1px solid #d7d7d7; height: 178px;}
 .content>.ng>.mask>.mask_cont>.mask_list>ul>li:nth-child(6)>a{ width: 455px; height: 176px;}
 .content>.ng>.mask>.mask_cont>.mask_list>ul>li:nth-child(6)>a>p{ font-size: 16px; width: 224px; display: block; float: left; margin-top: 50px; padding-left: 4px; color: #666666;}
@@ -638,250 +318,6 @@ export default {
 .content>.ng>.mask>.mask_cont>.mask_list>ul>li:nth-child(6):hover>a>p>span:nth-child(1){ color: #000000;}
 .content>.ng>.mask>.mask_cont>.mask_list>ul>li:nth-child(6)>a>p>span:nth-child(2){ width: 140px; border-top: 1px solid #3bc03b; color: #ff9900; font-size: 18px;}
 .content>.ng>.mask>.mask_cont>.mask_list>ul>li:nth-child(6)>a>p>span:nth-child(2)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-
-
-.content>.ng>.eye{ margin-top: 60px; clear: both;}
-.content>.ng>.eye>.eye_title{ border-bottom: 2px solid #fa94ad; margin-bottom: 6px;}
-.content>.ng>.eye>.eye_title>span:nth-child(1){ color: #fa94ad; font-size: 30px; line-height: 32px;}
-.content>.ng>.eye>.eye_title>span:nth-child(2){ margin-left: 28px; color: #fa94ad; font-size: 30px; line-height: 32px;}
-.content>.ng>.eye>.eye_title>span:nth-child(3){ margin-left: 24px; color: #CCCCCC; font-size: 24px; line-height: 32px;}
-.content>.ng>.eye>.eye_title>a{ float: right; font-size: 18px; color: #fa94ad;}
-.content>.ng>.eye>.eye_cont>.advertising{ float: left; margin-right: 6px;}
-.content>.ng>.eye>.eye_cont>.advertising>a>img{ width: 281px; height: 451px;}
-.content>.ng>.eye>.eye_cont>.eye_list{ position: relative; overflow: hidden;}
-.content>.ng>.eye>.eye_cont>.eye_list a{ display: block; border: 1px solid #f6f6f6;}
-.content>.ng>.eye>.eye_cont>.eye_list a:hover{ color: #000000; border: 1px solid #fa94ad;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul{width: 100%; height: 453px;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li{ overflow: hidden;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(1){top: 0; left: 0; width: 453px; position: absolute; border: 1px solid #d7d7d7; height: 180px;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(1)>a{ width: 451px; height: 178px;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(1):hover>a>p>span:nth-child(1){ color: #000000;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(1)>a>p>span:nth-child(1){ color: #666666;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li>a{ overflow: hidden;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li>a>img{ height: 160px;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(1)>a>p{ font-size: 16px; width: 304px; display: block; float: left; margin-top: 50px; padding-left: 4px; color: #666666;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(1)>a>img{ margin-top: 8px; display: block; float: right; margin-right: 50px;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(1)>a>p>span{ display: block;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(1)>a>p>span:nth-child(2){ width: 140px; border-top: 1px solid #3bc03b; color: #ff9900; font-size: 18px;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(1)>a>p>span:nth-child(2)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(2){ position: absolute; width: 228px; height: 270px; border: 1px solid #d7d7d7; top: 0; left: 454px; }
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(2)>a{ width: 226px; height: 268px; text-align: center;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(2)>a>img{ margin-top: 15px;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(2)>a>span{ display: block; margin: 0 auto; font-size: 16px;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(2)>a>span:nth-child(3){ font-size: 16px; color: #FF9900; text-align: center; }
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(2)>a>span:nth-child(3)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(3){ position: absolute; width: 228px; height: 270px; border: 1px solid #d7d7d7; top: 0; left: 683px; }
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(3)>a{ width: 226px; height: 268px; text-align: center;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(3)>a>img{ margin-top: 15px;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(3)>a>span{ display: block; margin: 0 auto; font-size: 16px;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(3)>a>span:nth-child(3){ font-size: 16px; color: #FF9900; text-align: center; }
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(3)>a>span:nth-child(3)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(4){ position: absolute; width: 226px; height: 268px; border: 1px solid #d7d7d7; top: 181px; left: 0; }
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(4)>a{ width: 224px; height: 266px; text-align: center;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(4)>a>img{ margin-top: 15px;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(4)>a>span{ display: block; margin: 0 auto; font-size: 16px;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(4)>a>span:nth-child(3){ font-size: 16px; color: #FF9900; text-align: center; }
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(4)>a>span:nth-child(3)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(5){ position: absolute; width: 226px; height: 268px; border: 1px solid #d7d7d7; top: 181px; left: 227px; }
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(5)>a{ width: 224px; height: 266px; text-align: center;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(5)>a>img{ margin-top: 15px;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(5)>a>span{ line-height: 24px; display: block; margin: 0 auto; font-size: 16px;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(5)>a>span:nth-child(3){ font-size: 16px; color: #FF9900; text-align: center; }
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(5)>a>span:nth-child(3)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(6){top: 271px; left: 454px; width: 457px; position: absolute; border: 1px solid #d7d7d7; height: 178px;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(6)>a{ width: 455px; height: 176px;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(6)>a>p{ font-size: 16px; width: 224px; display: block; float: left; margin-top: 50px; padding-left: 4px; color: #666666;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(6)>a>img{ margin-top: 8px; display: block; float: right; margin-right: 50px;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(6)>a>p>span{ display: block;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(6)>a>p>span:nth-child(1){ color: #666666;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(6):hover>a>p>span:nth-child(1){ color: #000000;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(6)>a>p>span:nth-child(2){ width: 140px; border-top: 1px solid #3bc03b; color: #ff9900; font-size: 18px;}
-.content>.ng>.eye>.eye_cont>.eye_list>ul>li:nth-child(6)>a>p>span:nth-child(2)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-
-.content>.ng>.latex{ margin-top: 60px;}
-.content>.ng>.latex>.latex_title{ border-bottom: 2px solid #339999; margin-bottom: 6px;}
-.content>.ng>.latex>.latex_title>span:nth-child(1){ color: #339999; font-size: 30px; line-height: 32px;}
-.content>.ng>.latex>.latex_title>span:nth-child(2){ margin-left: 28px; color: #339999; font-size: 30px; line-height: 32px;}
-.content>.ng>.latex>.latex_title>span:nth-child(3){ margin-left: 24px; color: #CCCCCC; font-size: 24px; line-height: 32px;}
-.content>.ng>.latex>.latex_title>a{ float: right; font-size: 18px; color: #339999;}
-.content>.ng>.latex>.latex_cont>.advertising{ float: left; margin-right: 6px;}
-.content>.ng>.latex>.latex_cont>.advertising>a>img{ width: 281px; height: 451px;}
-.content>.ng>.latex>.latex_cont>.latex_list{ position: relative; overflow: hidden;}
-.content>.ng>.latex>.latex_cont>.latex_list a{ display: block; border: 1px solid #f6f6f6;}
-.content>.ng>.latex>.latex_cont>.latex_list a:hover{ color: #000000; border: 1px solid #339999;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul{width: 100%; height: 453px;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li{ overflow: hidden;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(1){top: 0; left: 0; width: 453px; position: absolute; border: 1px solid #d7d7d7; height: 180px;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(1)>a{ width: 451px; height: 178px;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(1)>a>img{ margin-top: 15px;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(1):hover>a>p>span:nth-child(1){ color: #000000;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(1)>a>p>span:nth-child(1){ color: #666666;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li>a{ overflow: hidden;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li>a>img{ height: 160px;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(1)>a>p{ font-size: 16px; width: 180px; display: block; float: left; margin-top: 50px; padding-left: 4px; color: #666666;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(1)>a>img{ margin-top: 8px; display: block; float: right;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(1)>a>p>span{ display: block;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(1)>a>p>span:nth-child(2){ width: 140px; border-top: 1px solid #3bc03b; color: #ff9900; font-size: 18px;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(1)>a>p>span:nth-child(2)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(2){ position: absolute; width: 228px; height: 270px; border: 1px solid #d7d7d7; top: 0; left: 454px; }
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(2)>a{ width: 226px; height: 268px; text-align: center;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(2)>a>img{ margin-top: 15px;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(2)>a>span{ display: block; margin: 0 auto; font-size: 16px;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(2)>a>span:nth-child(3){ font-size: 16px; color: #FF9900; text-align: center; }
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(2)>a>span:nth-child(3)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(3){ position: absolute; width: 228px; height: 270px; border: 1px solid #d7d7d7; top: 0; left: 683px; }
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(3)>a{ width: 226px; height: 268px; text-align: center;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(3)>a>img{ margin-top: 15px;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(3)>a>span{ display: block; margin: 0 auto; font-size: 16px;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(3)>a>span:nth-child(3){ font-size: 16px; color: #FF9900; text-align: center; }
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(3)>a>span:nth-child(3)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(4){ position: absolute; width: 226px; height: 268px; border: 1px solid #d7d7d7; top: 181px; left: 0; }
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(4)>a{ width: 224px; height: 266px; text-align: center;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(4)>a>img{ margin-top: 15px;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(4)>a>span{ display: block; margin: 0 auto; font-size: 16px;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(4)>a>span:nth-child(3){ font-size: 16px; color: #FF9900; text-align: center; }
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(4)>a>span:nth-child(3)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(5){ position: absolute; width: 226px; height: 268px; border: 1px solid #d7d7d7; top: 181px; left: 227px; }
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(5)>a{ width: 224px; height: 266px; text-align: center;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(5)>a>img{ margin-top: 15px;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(5)>a>span{ display: block; margin: 0 auto; font-size: 16px;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(5)>a>span:nth-child(3){ font-size: 16px; color: #FF9900; text-align: center; }
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(5)>a>span:nth-child(3)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(6){top: 271px; left: 454px; width: 457px; position: absolute; border: 1px solid #d7d7d7; height: 178px;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(6)>a{ width: 455px; height: 176px;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(6)>a>p{ font-size: 16px; width: 180px; display: block; float: left; margin-top: 50px; padding-left: 4px; color: #666666;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(6)>a>img{ margin-top: 8px; display: block; float: right;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(6)>a>p>span{ display: block;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(6)>a>p>span:nth-child(1){ color: #666666;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(6):hover>a>p>span:nth-child(1){ color: #000000;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(6)>a>p>span:nth-child(2){ width: 140px; border-top: 1px solid #3bc03b; color: #ff9900; font-size: 18px;}
-.content>.ng>.latex>.latex_cont>.latex_list>ul>li:nth-child(6)>a>p>span:nth-child(2)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-
-.content>.ng>.cream{ margin-top: 60px;}
-.content>.ng>.cream>.cream_title{ border-bottom: 2px solid #9d80db; margin-bottom: 6px;}
-.content>.ng>.cream>.cream_title>span:nth-child(1){ color: #9d80db; font-size: 30px; line-height: 32px;}
-.content>.ng>.cream>.cream_title>span:nth-child(2){ margin-left: 28px; color: #9d80db; font-size: 30px; line-height: 32px;}
-.content>.ng>.cream>.cream_title>span:nth-child(3){ margin-left: 24px; color: #CCCCCC; font-size: 24px; line-height: 32px;}
-.content>.ng>.cream>.cream_title>a{ float: right; font-size: 18px; color: #9d80db;}
-.content>.ng>.cream>.cream_cont>.advertising{ float: left; margin-right: 6px;}
-.content>.ng>.cream>.cream_cont>.advertising>a>img{ width: 281px; height: 451px;}
-.content>.ng>.cream>.cream_cont>.cream_list{ position: relative; overflow: hidden;}
-.content>.ng>.cream>.cream_cont>.cream_list a{ display: block; border: 1px solid #f6f6f6;}
-.content>.ng>.cream>.cream_cont>.cream_list a:hover{ color: #000000; border: 1px solid #9d80db;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul{width: 100%; height: 453px;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li{ overflow: hidden;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(1){top: 0; left: 0; width: 453px; position: absolute; border: 1px solid #d7d7d7; height: 180px;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(1)>a{ width: 451px; height: 178px;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(1)>a>img{ margin-top: 15px;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(1):hover>a>p>span:nth-child(1){ color: #000000;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(1)>a>p>span:nth-child(1){ color: #666666;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li>a{ overflow: hidden;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li>a>img{ height: 160px;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(1)>a>p{ font-size: 16px; width: 180px; display: block; float: left; margin-top: 50px; padding-left: 4px; color: #666666;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(1)>a>img{ margin-top: 8px; display: block; float: right; margin-right: 20px;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(1)>a>p>span{ display: block;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(1)>a>p>span:nth-child(2){ width: 140px; border-top: 1px solid #3bc03b; color: #ff9900; font-size: 18px;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(1)>a>p>span:nth-child(2)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(2){ position: absolute; width: 228px; height: 270px; border: 1px solid #d7d7d7; top: 0; left: 454px; }
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(2)>a{ width: 226px; height: 268px; text-align: center;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(2)>a>img{ margin-top: 15px; }
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(2)>a>span{ display: block; margin: 0 auto; font-size: 16px;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(2)>a>span:nth-child(3){ font-size: 16px; color: #FF9900; text-align: center; }
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(2)>a>span:nth-child(3)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(3){ position: absolute; width: 228px; height: 270px; border: 1px solid #d7d7d7; top: 0; left: 683px; }
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(3)>a{ width: 226px; height: 268px; text-align: center;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(3)>a>img{ margin-top: 15px;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(3)>a>span{ display: block; margin: 0 auto; font-size: 16px;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(3)>a>span:nth-child(3){ font-size: 16px; color: #FF9900; text-align: center; }
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(3)>a>span:nth-child(3)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(4){ position: absolute; width: 226px; height: 268px; border: 1px solid #d7d7d7; top: 181px; left: 0; }
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(4)>a{ width: 224px; height: 266px; text-align: center;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(4)>a>img{ margin-top: 15px;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(4)>a>span{ display: block; margin: 0 auto; font-size: 16px;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(4)>a>span:nth-child(3){ font-size: 16px; color: #FF9900; text-align: center; }
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(4)>a>span:nth-child(3)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(5){ position: absolute; width: 226px; height: 268px; border: 1px solid #d7d7d7; top: 181px; left: 227px; }
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(5)>a{ width: 224px; height: 266px; text-align: center;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(5)>a>img{ margin-top: 15px;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(5)>a>span{ display: block; margin: 0 auto; font-size: 16px;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(5)>a>span:nth-child(3){ font-size: 16px; color: #FF9900; text-align: center; }
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(5)>a>span:nth-child(3)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(6){top: 271px; left: 454px; width: 457px; position: absolute; border: 1px solid #d7d7d7; height: 178px;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(6)>a{ width: 455px; height: 176px;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(6)>a>p{ font-size: 16px; width: 180px; display: block; float: left; margin-top: 50px; padding-left: 4px; color: #666666;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(6)>a>img{ margin-top: 8px; display: block; float: right; margin-right: 20px;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(6)>a>p>span{ display: block;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(6)>a>p>span:nth-child(1){ color: #666666;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(6):hover>a>p>span:nth-child(1){ color: #000000;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(6)>a>p>span:nth-child(2){ width: 140px; border-top: 1px solid #3bc03b; color: #ff9900; font-size: 18px;}
-.content>.ng>.cream>.cream_cont>.cream_list>ul>li:nth-child(6)>a>p>span:nth-child(2)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-
-.content>.ng>.water{ margin-top: 60px;}
-.content>.ng>.water>.water_title{ border-bottom: 2px solid #fe7649; margin-bottom: 6px;}
-.content>.ng>.water>.water_title>span:nth-child(1){ color: #fe7649; font-size: 30px; line-height: 32px;}
-.content>.ng>.water>.water_title>span:nth-child(2){ margin-left: 28px; color: #fe7649; font-size: 30px; line-height: 32px;}
-.content>.ng>.water>.water_title>span:nth-child(3){ margin-left: 24px; color: #CCCCCC; font-size: 24px; line-height: 32px;}
-.content>.ng>.water>.water_title>a{ float: right; font-size: 18px; color: #fe7649;}
-.content>.ng>.water>.water_cont>.advertising{ float: left; margin-right: 6px;}
-.content>.ng>.water>.water_cont>.advertising>a>img{ width: 281px; height: 451px;}
-.content>.ng>.water>.water_cont>.water_list{ position: relative; overflow: hidden;}
-.content>.ng>.water>.water_cont>.water_list a{ display: block; border: 1px solid #f6f6f6;}
-.content>.ng>.water>.water_cont>.water_list a:hover{ color: #000000; border: 1px solid #fe7649;}
-.content>.ng>.water>.water_cont>.water_list>ul{width: 100%; height: 453px;}
-.content>.ng>.water>.water_cont>.water_list>ul>li{ overflow: hidden;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(1){top: 0; left: 0; width: 453px; position: absolute; border: 1px solid #d7d7d7; height: 180px;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(1)>a{ width: 451px; height: 178px;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(1)>a>img{ margin-top: 15px;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(1):hover>a>p>span:nth-child(1){ color: #000000;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(1)>a>p>span:nth-child(1){ color: #666666;}
-.content>.ng>.water>.water_cont>.water_list>ul>li>a{ overflow: hidden;}
-.content>.ng>.water>.water_cont>.water_list>ul>li>a>img{ height: 160px;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(1)>a>p{ font-size: 16px; width: 200px; display: block; float: left; margin-top: 50px; padding-left: 4px; color: #666666;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(1)>a>img{ margin-top: 8px; display: block; float: right; margin-right: 20px;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(1)>a>p>span{ display: block;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(1)>a>p>span:nth-child(2){ width: 140px; border-top: 1px solid #3bc03b; color: #ff9900; font-size: 18px;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(1)>a>p>span:nth-child(2)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(2){ position: absolute; width: 228px; height: 270px; border: 1px solid #d7d7d7; top: 0; left: 454px; }
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(2)>a{ width: 226px; height: 268px; text-align: center;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(2)>a>img{ margin-top: 15px; }
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(2)>a>span{ display: block; margin: 0 auto; font-size: 16px;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(2)>a>span:nth-child(3){ font-size: 16px; color: #FF9900; text-align: center; }
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(2)>a>span:nth-child(3)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(3){ position: absolute; width: 228px; height: 270px; border: 1px solid #d7d7d7; top: 0; left: 683px; }
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(3)>a{ width: 226px; height: 268px; text-align: center;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(3)>a>img{ margin-top: 15px;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(3)>a>span{ display: block; margin: 0 auto; font-size: 16px;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(3)>a>span:nth-child(3){ font-size: 16px; color: #FF9900; text-align: center; }
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(3)>a>span:nth-child(3)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(4){ position: absolute; width: 226px; height: 268px; border: 1px solid #d7d7d7; top: 181px; left: 0; }
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(4)>a{ width: 224px; height: 266px; text-align: center;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(4)>a>img{ margin-top: 15px;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(4)>a>span{ display: block; margin: 0 auto; font-size: 16px;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(4)>a>span:nth-child(3){ font-size: 16px; color: #FF9900; text-align: center; }
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(4)>a>span:nth-child(3)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(5){ position: absolute; width: 226px; height: 268px; border: 1px solid #d7d7d7; top: 181px; left: 227px; }
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(5)>a{ width: 224px; height: 266px; text-align: center;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(5)>a>img{ margin-top: 15px;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(5)>a>span{ display: block; margin: 0 auto; font-size: 16px;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(5)>a>span:nth-child(3){ font-size: 16px; color: #FF9900; text-align: center; }
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(5)>a>span:nth-child(3)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
-
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(6){top: 271px; left: 454px; width: 457px; position: absolute; border: 1px solid #d7d7d7; height: 178px;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(6)>a{ width: 455px; height: 176px;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(6)>a>p{ font-size: 16px; width: 200px; display: block; float: left; margin-top: 50px; padding-left: 4px; color: #666666;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(6)>a>img{ margin-top: 8px; display: block; float: right; margin-right: 20px;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(6)>a>p>span{ display: block;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(6)>a>p>span:nth-child(1){ color: #666666;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(6):hover>a>p>span:nth-child(1){ color: #000000;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(6)>a>p>span:nth-child(2){ width: 140px; border-top: 1px solid #3bc03b; color: #ff9900; font-size: 18px;}
-.content>.ng>.water>.water_cont>.water_list>ul>li:nth-child(6)>a>p>span:nth-child(2)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
 
 .content>.ng>.service{ margin-top: 60px; overflow: hidden;}
 .content>.ng>.service>li{ float: left; width: 240px;}
