@@ -58,6 +58,7 @@
 										<p>
 											<span>{{product.Title}}</span>
 											<span>￥{{product.Price}}</span>
+											<span style="font-size: 12px; color: #999999; text-decoration: line-through;">￥{{product.Price}}</span>
 										</p>
 										<img :src="product.Pic" />
 									</a>
