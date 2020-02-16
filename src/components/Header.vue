@@ -1,4 +1,4 @@
-<template>
+<template>  
     <div>
         <div class="top">
             <div class="ng">
@@ -144,7 +144,7 @@ export default {
 }
 </script>
 <style scoped>
-.top{ height: 30px; background: #efefef;}
+.top{ height: 30px; background: #efefef; width: 100%;}
 .top>.ng>.left{ float: left; margin-left: 8px;}
 .top>.ng>.left>img{ float: left;margin-top: 6px;}
 .top>.ng>.left>span{ line-height: 30px; color: #999999;}
@@ -179,7 +179,7 @@ export default {
 
 .middle>.ng>.shop_cart_box{ float: left; margin-left: 170px;}
 .middle>.ng>.shop_cart_box>.shop_cart{ margin-top: 48px; width: 166px; height: 36px; border: 1px solid #ff9933; position: relative;}
-.middle>.ng>.shop_cart_box>.shop_cart>a>.num{left: 120px; top: -22px; line-height: 30px; text-align: center; color: white; width: 30px; height: 30px; display: block; position: absolute; background: require(@/assets/index/shop_cart_num.png);}
+.middle>.ng>.shop_cart_box>.shop_cart>a>.num{left: 120px; top: -22px; line-height: 30px; text-align: center; color: white; width: 30px; height: 30px; display: block; position: absolute; background: require('@/assets/index/shop_cart_num.png')}
 .middle>.ng>.shop_cart_box>.shop_cart>a{ font-size: 18px; color: #ff9933; line-height: 36px;}
 .middle>.ng>.shop_cart_box>.shop_cart>a>img{ margin-left: 8px; float: left; margin-top: 5px;}
 .middle>.ng>.shop_cart_box>.shop_cart>a>span{ margin-left: 12px; float: left;}
@@ -205,10 +205,10 @@ export default {
   -moz-box-shadow:inset 0 10px 10px #666666;  }
 .banner>.hd{ width: 100%; position: absolute; text-align: center; bottom: 12px; z-index: 11;}
 .banner>.hd>ul{ display: inline-block;}
-/* .banner>.hd>ul>li{ top: 0; width: 20px; height: 20px; border-radius: 50%; display: inline; float: left; margin: 0 5px; cursor: pointer; background: #8dd070;} */
+.banner>.hd>ul>li{ top: 0; border-radius: 50%; display: inline; margin: 0 5px; cursor: pointer; background: #8dd070;}
 .banner>.hd>ul>li.on{ background: #339933;}
 .banner>.bd{ text-align: center; position: absolute; width: 100%; height: 600px; z-index: 0;}
 .banner>.bd>ul>li{ width: 100%; height: 600px; position: absolute;overflow: hidden;}
 .banner>.bd>ul>li>a{ width: 1920px; height: 600px; position: absolute; left: 50%; margin-left: -960px;}
-.banner>.bd>ul>li>a>img{ display: block; margin: 0 auto; height: 600px;}
+.banner>.bd>ul>li>a>img{ display: block; margin: 0 auto; height: 600px;} 
 </style>
