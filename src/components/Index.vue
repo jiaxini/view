@@ -8,59 +8,58 @@
 						<span>今日推荐</span>
 					</div>
 					<ul>
-						<li v-for="recommend in recommends" :key='recommend.Id'>
+						<li v-for="recommend in recommends" :key='recommend.id'>
 							<a href="pro_details.html">
-								<img :src="recommend.Pic" /> 
-								<p>{{recommend.Title}}</p>
-								<span>￥{{recommend.Price}}</span>
+								<img :src="recommend.img" /> 
+								<p>{{recommend.title}}</p>
+								<span>￥{{recommend.price}}</span>
 							</a>
 						</li>
 					</ul>
 				</div>
+
 				<div class="news">
 					<ol class="news_title">
-						<li :class="newsSelected.num == item.Id ? 'active' : ''" v-for='item in news' :key="item.Id">{{item.Name}}</li>
+						<li :class="adsSelected.id == item.id ? 'active' : ''" v-for='item in ads' :key="item.id" @click="selectCart(item)">{{item.name}}</li>
 					</ol>
 					<ul class="news_cont show">
-						<li v-for="product in newsSelected.products" :key="product.Id">
+						<li v-for="product in adsSelected.products" :key="product.id">
 							<a href="pro_details.html">
-								<img :src="product.Pic" />
+								<img :src="product.img" />
 								<p>
-									<span>{{product.Title}}</span>
-									<span>嫩粉色 30ml</span>
+									<span>{{product.title}}</span>
 								</p>
-								<span>￥{{product.Price}}</span>
+								<span>￥{{product.price}}</span>
 							</a>
 						</li>
 					</ul>
 					<div class="advertisement">
 						<a href="pro_details.html">
-							<img :src="newsSelected.cover" />
+							<img :src="adsSelected.cover" />
 						</a>
 					</div>
 				</div>
 
-				<div class="mask" v-for="floor in floors" :key='floor.Id'>
+				<div class="mask" v-for="floor in floors" :key='floor.id'>
 					<div class="mask_title">
-						<span>{{floor.Num}}F</span>
-						<span>{{floor.Name}}</span>
-						<span>{{floor.Ename}}</span>
+						<span>{{floor.num}}F</span>
+						<span>{{floor.name}}</span>
+						<span>{{floor.eName}}</span>
 						<a href="shop_list.html">进入专区 ></a>
 					</div>
 					<div class="mask_cont">
 						<div class="advertising">
-							<a href="pro_details.html"><img :src="floor.Cover" /></a>
+							<a href="pro_details.html"><img :src="floor.cover" /></a>
 						</div>
 						<div class="mask_list">
 							<ul>
-								<li v-for="product in floor.Products" :key='product.Id'>
+								<li v-for="product in floor.product" :key='product.id'>
 									<a href="pro_details.html">
 										<p>
-											<span>{{product.Title}}</span>
-											<span>￥{{product.Price}}</span>
-											<span style="font-size: 12px; color: #999999; text-decoration: line-through;">￥{{product.Price}}</span>
+											<span>{{product.title}}</span>
+											<span>￥{{product.price}}</span>
 										</p>
-										<img :src="product.Pic" />
+										<img :src="product.img" />
 									</a>
 								</li>
 							</ul>								
@@ -71,7 +70,7 @@
 				<ul class="service">
 					<li>
 						<a href="javascript:;">
-							<img :src="pic.tb1" />
+							<img :src="require('@/assets/tb1.png')" />
 						</a>
 						<div>
 							<h2><a href="javascript:;">正品保障</a></h2>
@@ -81,7 +80,7 @@
 					</li>
 					<li>
 						<a href="javascript:;">
-							<img :src="pic.tb2" />
+							<img :src="require('@/assets/tb2.png')" />
 						</a>
 						<div>
 							<h2><a href="javascript:;">品牌直营</a></h2>
@@ -91,7 +90,7 @@
 					</li>
 					<li>
 						<a href="javascript:;">
-							<img :src="pic.tb3" />
+							<img :src="require('@/assets/tb3.png')" />
 						</a>
 						<div>
 							<h2><a href="javascript:;">极速送达</a></h2>
@@ -101,7 +100,7 @@
 					</li>
 					<li>
 						<a href="javascript:;">
-							<img :src="pic.tb4" />
+							<img :src="require('@/assets/tb4.png')" />
 						</a>
 						<div>
 							<h2><a href="javascript:;">专属客服</a></h2>
@@ -111,7 +110,7 @@
 					</li>
 					<li>
 						<a href="javascript:;">
-							<img :src="pic.tb5" />
+							<img :src="require('@/assets/tb5.png')" />
 						</a>
 						<div>
 							<h2><a href="javascript:;">售后无忧</a></h2>
@@ -126,57 +125,49 @@
 <script>
 import Banner from '@/components/Banner';
 import { G } from '@/common/Http';
-import { recommend, floor, news , banner } from '@/common/Api'
+import { recommend, floor, ad } from '@/common/Api'
 export default {
     name: 'Index',
     data:() => {
          return {
 			recommends:[],
 			floors: [],
-			news:[],
-			newsSelected: {
-				num: 1,
-				products: [],
-				cover: ''
-			},
-			pic:{
-				tb1: require('@/assets/index/tb1.png'),
-				tb2: require('@/assets/index/tb2.png'),
-				tb3: require('@/assets/index/tb3.png'),
-				tb4: require('@/assets/index/tb4.png'),
-				tb5: require('@/assets/index/tb5.png'),
-			}
-			
+			ads:[],
+			adsSelected: {}
         }
 	},
 	components: {Banner},
-	created(){
-		banner.then(d => console.log(d))
-	},
+	
 	mounted(){
 		recommend.then(data => {
 			if(data.status == 200){
 				this.recommends = data.data
 			}
 		})
+
+		ad.then(data =>{
+			if(data.status == 200){
+				this.ads = data.data
+				this.adsSelected = this.ads.news
+			}
+		})
+
 		floor.then(data => {
 			if(data.status == 200){
 				this.floors = data.data
 			}
 		})
-		news.then(data =>{
-			if(data.status == 200){
-				this.news = data.data
-				this.newsSelected.products = data.data[1].Products
-				this.newsSelected.cover = data.data[1].Cover
-			}
-		})
+	},
+	methods:{
+		selectCart(item){
+			this.adsSelected = item;
+		}
 	}
 }
 </script>
 <style scoped>
 .content>.ng>.today{ margin-top: 60px; margin-left: -1px; position: relative; width: 100%; border-top: 1px solid #cfcfcf; border-bottom: 1px solid #cfcfcf;}
-.content>.ng>.today>.caption{ width: 93px; height: 115px; position: absolute; top: 0; left: 0; background: url('../assets/index/bt1.png');}
+.content>.ng>.today>.caption{ width: 93px; height: 115px; position: absolute; top: 0; left: 0; background: url('../assets/bt1.png');}
 .content>.ng>.today>.caption>span{ display: block; font-size: 24px; color: white; width: 50px; line-height: 30px; margin: 0 auto; margin-top: 14px;} 
 .content>.ng>.today>ul{ border-left: 1px solid #CFCFCF;overflow: hidden; margin-right: -1px;}
 .content>.ng>.today>ul>li{ background: #FFFFFF; float: left; border-right: 1px solid #CFCFCF; width: 299px; height: 298px;}
@@ -249,7 +240,6 @@ export default {
 .content>.ng>.mask>.mask_cont>.mask_list>ul>li:nth-child(5)>a{ width: 224px; height: 266px; text-align: center;}
 .content>.ng>.mask>.mask_cont>.mask_list>ul>li:nth-child(5)>a>span{ display: block; margin: 0 auto; font-size: 16px;}
 .content>.ng>.mask>.mask_cont>.mask_list>ul>li:nth-child(5)>a>span:nth-child(3){ font-size: 16px; color: #FF9900; text-align: center; }
-.content>.ng>.mask>.mask_cont>.mask_list>ul>li:nth-child(5)>a>span:nth-child(3)>span{ font-size: 12px; color: #999999; text-decoration: line-through;}
 .content>.ng>.mask>.mask_cont>.mask_list>ul>li:nth-child(6){top: 271px; left: 454px; width: 457px; position: absolute; border: 1px solid #d7d7d7; height: 178px;}
 .content>.ng>.mask>.mask_cont>.mask_list>ul>li:nth-child(6)>a{ width: 455px; height: 176px;}
 .content>.ng>.mask>.mask_cont>.mask_list>ul>li:nth-child(6)>a>p{ font-size: 16px; width: 224px; display: block; float: left; margin-top: 50px; padding-left: 4px; color: #666666;}

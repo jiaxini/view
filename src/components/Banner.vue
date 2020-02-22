@@ -2,43 +2,39 @@
  	<div class="banner" @mouseenter="stop()" @mouseleave="show()">
 		<div class="hd">
 			<ul>
-				<li @click="currentIndex = 0" :class="currentIndex == 0 ? 'on' : ''"><span> </span></li>
-				<li @click="currentIndex = 1" :class="currentIndex == 1 ? 'on' : ''"><span> </span></li>
-				<li @click="currentIndex = 2" :class="currentIndex == 2 ? 'on' : ''"><span> </span></li>
+				<li @click="currentIndex = banner.id" :class="currentIndex == banner.id ? 'on' : ''" v-for="banner in banners" :key='banner.id'></li>
 			</ul>
 		</div>
 		<div class="bd">
 			<ul>
-				<li v-show="currentIndex == 0"><a href="pro_details.html"><img :src="pic.banner" /></a></li>
-				<li v-show="currentIndex == 1"><a href="pro_details.html"><img :src="pic.banner1" /></a></li>
-				<li v-show="currentIndex == 2"><a href="pro_details.html"><img :src="pic.banner2" /></a></li>
+				<li v-show="currentIndex == banner.id" v-for="banner in banners" :key="banner.id"><a href="pro_details.html"><img :src="banner.img" :alt="banner.title" /></a></li>
 			</ul>
 		</div>
 	</div> 
 </template>
 
 <script>
+import { banner } from '../common/Api';
 export default {
     name: 'Banner',
     data: () => {
         return {
-            pic: {
-                banner: require('@/assets/index/banner.png'),
-                banner1: require('@/assets/index/banner2.png'),
-                banner2: require('@/assets/index/banner3.png'),
-			},
+			banners: [],
 			setintervalId: null,
 			currentIndex: 0
         }
     },
 	mounted() {
+		banner.then(d => {
+			this.banners = d.data
+		})
 		this.show();
 	},
 	methods: {
 		show: function(){
 			this.setintervalId = setInterval(()=>{
-				if(this.currentIndex == 2){
-					this.currentIndex = 0;
+				if(this.currentIndex == 3){
+					this.currentIndex = 1;
 				}else{
 					this.currentIndex++;
 				}
@@ -56,8 +52,8 @@ export default {
   -moz-box-shadow:inset 0 10px 10px #666666;  }
 .banner>.hd{ width: 100%; position: absolute; text-align: center; bottom: 12px; z-index: 11;}
 .banner>.hd>ul{ display: inline-block;}
-.banner>.hd>ul>li>span{ top: 0; border-radius: 50%; display: inline; margin: 0 5px; cursor: pointer; background: #8dd070;}
-.banner>.hd>ul>li.on>span{ background: #339933;}
+.banner>.hd>ul>li{ top: 0; border-radius: 50%;height: 20px; width: 20px; display: inline-block; margin: 0 5px; cursor: pointer; background: #8dd070;}
+.banner>.hd>ul>li.on{ background: #339933; }
 .banner>.bd{ text-align: center; position: absolute; width: 100%; height: 600px; z-index: 0;}
 .banner>.bd>ul>li{ width: 100%; height: 600px; position: absolute;overflow: hidden;}
 .banner>.bd>ul>li>a{ width: 1920px; height: 600px; position: absolute; left: 50%; margin-left: -960px;}

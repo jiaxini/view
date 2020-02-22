@@ -1,6 +1,7 @@
 import { G } from '@/common/Http';
 
-export const recommend = G("v1/index/recommend")
-export const news = G("v1/index/new")
-export const floor = G("v1/index/floor")
 export const banner = G("v1/banner")
+export const recommend = G("v1/recommend")
+export const ad = G("v1/ad")
+export const floor = G("v1/floor")
+

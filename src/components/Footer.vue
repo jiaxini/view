@@ -2,9 +2,9 @@
 		<div class="footer">
 			<div class="ng">
 				<div class="footer_left">
-					<img :src="pic.foot_logo" />
+					<img :src="require('@/assets/foot_logo.png')" />
 					<div>
-						<img :src="pic.phone" />
+						<img :src="require('@/assets/phone.png')" />
 						<p>
 							<span>加西妮客服电话</span>
 							<span>400 - 843 - 2288</span>
@@ -44,7 +44,7 @@
 				</ul>
 				<div class="footer_right">
 					<span>加西妮官方微信</span>
-					<img :src="pic.code" />
+					<img :src="require('@/assets/code.png')" />
 				</div>
 			</div>
 			<div class="copyright">
@@ -54,16 +54,7 @@
 </template>
 <script>
 export default {
-    name: 'Footer',
-    data:() => {
-        return {
-            pic: {
-                foot_logo: require('@/assets/index/foot_logo.png'),
-                phone: require('@/assets/index/phone.png'),
-                code: require('@/assets/index/code.png')
-            }
-        }
-    }
+    name: 'Footer'
 }
 </script>
 <style scoped>

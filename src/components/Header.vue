@@ -3,7 +3,7 @@
         <div class="top">
             <div class="ng">
                 <div class="left">
-					<img :src="pic.index" />
+					<img :src="require('@/assets/home.png')" />
 					<span>加西妮首页</span>
 					<span>欢迎来到加西妮商城</span>
 					<span><router-link to="login">请登录</router-link></span>
@@ -12,7 +12,7 @@
                 <div class="right">
 					<div class="select" @mouseenter="flag.select = true" @mouseleave="flag.select = false">
 						<span >我的加西妮</span >
-						<img :src="pic.down" />
+						<img :src="require('@/assets/down.png')" />
 						<dd v-show="flag.select">
 							<dl><router-link to="user">我的加西妮</router-link></dl>
 							<dl><router-link to="user">我的加西妮</router-link></dl>
@@ -20,11 +20,11 @@
 						</dd>
 					</div>
 					<router-link to="cart">
-						<img :src="pic.cart1" />
+						<img :src="require('@/assets/shop_cart.png')" />
 						<span>购物车0件</span>
 					</router-link>
 					<a href="javascript:;"> 
-						<img :src="pic.bookmarks" />
+						<img :src="require('@/assets/bookmarks.png')" />
 						<span>收藏夹</span>
 					</a>
 				</div>
@@ -33,7 +33,7 @@
         <div class="middle">
             <div class="ng">
 				<div class="logo">
-					<a href="index.html"><img :src="pic.logo" /></a>
+					<a href="index.html"><img :src="require('@/assets/LOGO.png')" /></a>
 				</div>
 				<div class="search_box">
                     <div class="search">
@@ -74,7 +74,7 @@
                     <div class="shop_cart">
                         <a href="shop_cart.html">
                             <span class="num">0</span>
-                            <img :src="pic.cart2" />
+                            <img :src="require('@/assets/shop_cart2.png')" />
                             <span>我的购物车 ></span>
                         </a>							
                     </div>
@@ -118,14 +118,6 @@ export default {
                 menu: false
             },
             item: true,
-            pic: {
-                index: require('@/assets/index/index.png'),
-                down: require('@/assets/index/down.png'),
-                bookmarks: require('@/assets/index/Bookmarks.png'),
-                logo: require('@/assets/LOGO.png'),
-                cart1: require('@/assets/index/shop_cart.png'),
-                cart2: require('@/assets/index/shop_cart2.png')
-            },
             items: [
                 {url:'shop_list.html', name: '面膜系列'},						
                 {url: "shop_list.html", name :"面霜系列"},
@@ -179,23 +171,23 @@ export default {
 
 .middle>.ng>.shop_cart_box{ float: left; margin-left: 170px;}
 .middle>.ng>.shop_cart_box>.shop_cart{ margin-top: 48px; width: 166px; height: 36px; border: 1px solid #ff9933; position: relative;}
-.middle>.ng>.shop_cart_box>.shop_cart>a>.num{left: 120px; top: -22px; line-height: 30px; text-align: center; color: white; width: 30px; height: 30px; display: block; position: absolute; background: require('@/assets/index/shop_cart_num.png')}
+.middle>.ng>.shop_cart_box>.shop_cart>a>.num{left: 120px; top: -22px; line-height: 30px; text-align: center; color: white; width: 30px; height: 30px; display: block; position: absolute; background: require('@/assets/shop_cart_num.png')}
 .middle>.ng>.shop_cart_box>.shop_cart>a{ font-size: 18px; color: #ff9933; line-height: 36px;}
 .middle>.ng>.shop_cart_box>.shop_cart>a>img{ margin-left: 8px; float: left; margin-top: 5px;}
 .middle>.ng>.shop_cart_box>.shop_cart>a>span{ margin-left: 12px; float: left;}
 .navbar{ background: #339933; height: 40px; }
 .navbar>.ng{position: relative;}
-.navbar>.ng>.menu{cursor: pointer; width: 266px; height: 50px; background: url('../assets/index/menu.png'); position: absolute; top: -10px;}
+.navbar>.ng>.menu{cursor: pointer; width: 266px; height: 50px; background: url('../assets/menu.png'); position: absolute; top: -10px;}
 .navbar>.ng>.menu>.menu_title{width: 266px; height: 40px; line-height: 40px; cursor: pointer; position: absolute; bottom: 0; text-align: center; font-size: 18px; color: white;}
-.navbar>.ng>.menu>.menu_title>span{position: absolute; bottom: 10px; width: 15px; height: 15px; display: block; float: right; background: url('../assets/index/right2.png') no-repeat; right: 15px;}
-.navbar>.ng>.menu:hover>.menu_title>span{position: absolute; bottom: 5px; width: 15px; height: 15px; display: block; float: right; background: url('../assets/index/down2.png') no-repeat; right: 20px;}
+.navbar>.ng>.menu>.menu_title>span{position: absolute; bottom: 10px; width: 15px; height: 15px; display: block; float: right; background: url('../assets/right2.png') no-repeat; right: 15px;}
+.navbar>.ng>.menu:hover>.menu_title>span{position: absolute; bottom: 5px; width: 15px; height: 15px; display: block; float: right; background: url('../assets/down2.png') no-repeat; right: 20px;}
 .navbar>.ng>.menu>ul{z-index: 12; width: 249px; position: absolute; top: 50px; left: 9px;}
 .navbar>.ng>.menu>ul>li{ background: #FFFFFF; width: 249px; height: 60px; line-height: 60px; text-align: center; position: relative;}
 .navbar>.ng>.menu>ul>li>a{display: block; font-size: 20px; color: #666666;}
-.navbar>.ng>.menu>ul>li>a>span{position: absolute; bottom: 20px; width: 15px; height: 15px; display: block; float: right; background: url('../assets/index/right.png') no-repeat; right: 7px;}
+.navbar>.ng>.menu>ul>li>a>span{position: absolute; bottom: 20px; width: 15px; height: 15px; display: block; float: right; background: url('../assets/right.png') no-repeat; right: 7px;}
 .navbar>.ng>.menu>ul>li:hover{ background: #52c837;}
 .navbar>.ng>.menu>ul>li:hover>a{ color: white;}
-.navbar>.ng>.menu>ul>li:hover>a>span{position: absolute; bottom: 20px; width: 15px; height: 15px; display: block; float: right; background: url('../assets/index/right2.png') no-repeat; right: 7px;}
+.navbar>.ng>.menu>ul>li:hover>a>span{position: absolute; bottom: 20px; width: 15px; height: 15px; display: block; float: right; background: url('../assets/right2.png') no-repeat; right: 7px;}
 .navbar>.ng>.bar{margin-top: 10px; width: 700px; margin-left: 306px;}
 .navbar>.ng>.bar>a{display: block; float: left; font-size: 18px; text-align: center; width: 140px; height: 40px; line-height: 40px; color: white;}
 .navbar>.ng>.bar>a.on{ background: #268926;}
