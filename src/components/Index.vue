@@ -126,7 +126,7 @@
 <script>
 import Banner from '@/components/Banner';
 import { G } from '@/common/Http';
-import { recommend, floor, news } from '@/common/Api'
+import { recommend, floor, news , banner } from '@/common/Api'
 export default {
     name: 'Index',
     data:() => {
@@ -151,7 +151,7 @@ export default {
 	},
 	components: {Banner},
 	created(){
-
+		banner.then(d => console.log(d))
 	},
 	mounted(){
 		recommend.then(data => {

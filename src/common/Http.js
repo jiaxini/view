@@ -4,8 +4,9 @@ Vue.prototype.$http = axios;
 
 
 axios.defaults.timeout = 5000;                        
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';      
-axios.defaults.baseURL = 'http://127.0.0.1:36800';   
+// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';      
+axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';      
+// axios.defaults.baseURL = 'http://127.0.0.1:36800';   
 
 //POST传参序列化(添加请求拦截器)
 axios.interceptors.request.use((config) => {
