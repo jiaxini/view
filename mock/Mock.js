@@ -96,9 +96,14 @@ const floors =  () => {
     return floors;
 } 
 
+const user = {
+    'name': Random.cname(3),
+    'age': Random.natural(1,99)
+}
 
 // mock api
 mock('v1/banner', 'get', banners);
 mock('v1/recommend', 'get', recommends);
 mock('v1/ad', 'get', ads);
 mock('v1/floor', 'get', floors);
+mock('v1/login', 'post', user);

@@ -12,17 +12,17 @@
 								<div>
 									<label>
 										<span>
-											<img :src="pic.name" />
+											<img :src="require('@/assets/name.png')" />
 										</span>
-										<input type="text" placeholder="请输入用户名" />
+										<input type="text" placeholder="请输入用户名" v-model="username" />
 									</label>
 								</div>
 								<div>
 									<label>
 										<span>
-											<img :src="pic.lock" />
+											<img :src="require('@/assets/lock.png')" />
 										</span>
-										<input type="password" placeholder="请输入密码" />
+										<input type="password" placeholder="请输入密码" v-model="password" />
 									</label>
 								</div>
 								<div class="read">
@@ -34,7 +34,7 @@
 										<a href="javascript:;">忘记密码？</a>
 									</div>
 								</div>
-								<a href="javascript:;">登录</a>
+								<button @click="login">登录</button>
 								
 								<div class="line">
 									<b></b>
@@ -42,9 +42,9 @@
 									<b></b>
 								</div>
 								<div class="other">
-									<a href="javascript:;"><img :src="pic.QQ" /> </a>
-									<a href="javascript:;"><img :src="pic.wx" /> </a>
-									<a href="javascript:;"><img :src="pic.wb" /> </a>
+									<a href="javascript:;"><img :src="require('@/assets/QQ.png')" /> </a>
+									<a href="javascript:;"><img :src="require('@/assets/wx.png')" /> </a>
+									<a href="javascript:;"><img :src="require('@/assets/wb.png')" /> </a>
 								</div>
 							</div>
 						
@@ -57,23 +57,36 @@
 		</div>
 </template>
 <script>
+import { P } from '../common/Http';
+import { login } from "../common/Api";
 export default {
     data(){
         return {
-            pic: {
-                name : require("@/assets/register/name.png"),
-                lock : require("@/assets/register/lock.png"),
-                QQ : require("@/assets/login/QQ.png"),
-                wx : require("@/assets/login/wx.png"),
-                wb : require("@/assets/login/wb.png")
-            }
+			username: '',
+			password: ''
         }
-    }
+	},
+	methods: {
+		login(){
+			let username = this.username
+			let password = this.password
+			if(!username){
+				console.error("username con`t be empty")
+				return
+			}
+			if(!password){
+				console.error("password con`t be empty")
+				return
+			}
+			P(login, {username, password}).then(data => console.log(data.data))
+		}
+	}
+	
 }
 </script>
 <style scoped>
 .content{ overflow: hidden;}
-.content>.bg{ height: 670px; background: url(../assets/register/bg.png) no-repeat center; background-size: cover;}
+.content>.bg{ height: 670px; background: url(../assets/bg.png) no-repeat center; background-size: cover;}
 .content>.bg>.ng{ position: relative;}
 .content>.bg>.ng>.login{ background: white; position: absolute; right: 0; top: 60px; width: 400px;}
 .content>.bg>.ng>.login>.chan{ overflow: hidden; margin-bottom: 20px; border-top: 2px solid #207920;}
@@ -92,7 +105,7 @@ export default {
 .content>.bg>.ng>.login>form>.cont>.read>.checkbox>input[type=checkbox]:checked+label{ position: absolute; background: url(../assets/register/draw.png) no-repeat 0 0;}
 .content>.bg>.ng>.login>form>.cont>.read>.checkbox>label>span{ margin-left: 24px; display: block; float: left; margin-top: -6px; font-size: 14px; color: #999999;}
 .content>.bg>.ng>.login>form>.cont>.read>.checkbox>a{ font-size: 14px; float: right;}
-.content>.bg>.ng>.login>form>.cont>a{display: block; margin: 0 auto; width: 300px; height: 50px; color: white; line-height: 50px; text-align: center; background: #339933; font-size: 30px; margin-top: 30px; margin-bottom: 30px;}
+.content>.bg>.ng>.login>form>.cont>button{display: block; margin: 0 auto; width: 300px; height: 50px; color: white; line-height: 50px; text-align: center; background: #339933; font-size: 30px; margin-top: 30px; margin-bottom: 30px;}
 .content>.bg>.ng>.login>form>.cont>.line{ overflow: hidden; margin-top: 40px;}
 .content>.bg>.ng>.login>form>.cont>.line>b:nth-child(1){ margin-top: 14px; float: left; display: block; width: 74px; border-top: 1px solid #CCCCCC;}
 .content>.bg>.ng>.login>form>.cont>.line>b:nth-child(3){ margin-top: 14px; float: right; display: block; width: 74px; border-top: 1px solid #CCCCCC;}

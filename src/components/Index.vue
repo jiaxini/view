@@ -137,7 +137,6 @@ export default {
         }
 	},
 	components: {Banner},
-	
 	mounted(){
 		recommend.then(data => {
 			if(data.status == 200){
@@ -158,7 +157,7 @@ export default {
 			}
 		})
 	},
-	methods:{
+	methods: {
 		selectCart(item){
 			this.adsSelected = item;
 		}
