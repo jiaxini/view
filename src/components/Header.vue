@@ -6,8 +6,10 @@
 					<img :src="require('@/assets/home.png')" />
 					<span>加西妮首页</span>
 					<span>欢迎来到加西妮商城</span>
-					<span><router-link to="login">请登录</router-link></span>
-					<span><router-link to="register">免费注册</router-link></span>
+					<span v-show="!user.name"><router-link to="login">请登录</router-link></span>
+					<span v-show="user.name"><router-link to="login">{{user.name}}</router-link></span>
+					<span v-show="!user.name"><router-link to="register">免费注册</router-link></span>
+                    
 				</div>
                 <div class="right">
 					<div class="select" @mouseenter="flag.select = true" @mouseleave="flag.select = false">
@@ -106,8 +108,15 @@
     </div>
 </template>
 <script>
+import { mapGetters } from 'vuex';
+import { USERINFO } from '../store/modules/user'
 export default {
     name: 'Header',
+    computed: {
+        ...mapGetters({
+            user: USERINFO
+        })
+    },
     methods:{
         show: () => this.item = !this.item
     },

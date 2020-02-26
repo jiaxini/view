@@ -125,7 +125,7 @@
 <script>
 import Banner from '@/components/Banner';
 import { G } from '@/common/Http';
-import { recommend, floor, ad } from '@/common/Api'
+import { recommend, floor, ad } from '@/common/Api';
 export default {
     name: 'Index',
     data:() => {

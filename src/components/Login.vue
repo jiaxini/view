@@ -34,7 +34,7 @@
 										<a href="javascript:;">忘记密码？</a>
 									</div>
 								</div>
-								<button @click="login">登录</button>
+								<button @click="login" type="button">登录</button>
 								
 								<div class="line">
 									<b></b>
@@ -59,6 +59,8 @@
 <script>
 import { P } from '../common/Http';
 import { login } from "../common/Api";
+import { mapActions } from 'vuex';
+import { USERINFO } from '../store/modules/user';
 export default {
     data(){
         return {
@@ -67,6 +69,9 @@ export default {
         }
 	},
 	methods: {
+		...mapActions({
+			_login: USERINFO
+		}),
 		login(){
 			let username = this.username
 			let password = this.password
@@ -78,8 +83,9 @@ export default {
 				console.error("password con`t be empty")
 				return
 			}
-			P(login, {username, password}).then(data => console.log(data.data))
-		}
+			this._login({url:login,user:{username, password}});
+			this.$router.push("/")
+		},
 	}
 	
 }
