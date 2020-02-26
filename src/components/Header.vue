@@ -6,19 +6,19 @@
 					<img :src="require('@/assets/home.png')" />
 					<span>加西妮首页</span>
 					<span>欢迎来到加西妮商城</span>
-					<span v-show="!user.name"><router-link to="login">请登录</router-link></span>
-					<span v-show="user.name"><router-link to="login">{{user.name}}</router-link></span>
-					<span v-show="!user.name"><router-link to="register">免费注册</router-link></span>
-                    
+                    <span v-show="!user.name">
+					    <span><router-link to="login">请登录</router-link></span>
+					    <span><router-link to="register">免费注册</router-link></span>
+                    </span>
 				</div>
                 <div class="right">
-					<div class="select" @mouseenter="flag.select = true" @mouseleave="flag.select = false">
-						<span >我的加西妮</span >
+					<div v-show="user.name" class="select" @mouseenter="flag.select = true" @mouseleave="flag.select = false">
+						<span>{{ user.name }}</span >
 						<img :src="require('@/assets/down.png')" />
 						<dd v-show="flag.select">
-							<dl><router-link to="user">我的加西妮</router-link></dl>
-							<dl><router-link to="user">我的加西妮</router-link></dl>
-							<dl><router-link to="user">我的加西妮</router-link></dl>
+							<dl><router-link to="user">个人中心</router-link></dl>
+							<dl><router-link to="user">收货地址</router-link></dl>
+							<dl><router-link to="user">我的订单</router-link></dl>
 						</dd>
 					</div>
 					<router-link to="cart">

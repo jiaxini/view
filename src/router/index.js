@@ -1,17 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from '@/components/Index';
-import Search from '@/components/Search';
-import Product from '@/components/Product';
-import Cart from '@/components/Cart';
-import Confirm from '@/components/Confirm';
-import Pay from '@/components/Pay';
-import Order from '@/components/Order';
-import OrderDetail from '@/components/OrderDetail';
-import Address from '@/components/Address';
-import User from '@/components/User';
-import Login from '@/components/Login';
-import Register from '@/components/Register';
 
 Vue.use(Router)
 
@@ -19,63 +7,51 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name:'Index',
-      component: Index
+      component: () => import('@/components/Index')
     },
     {
       path: '/shop',
-      name: 'Shop',
-      component: Search
+      component: () => import('@/components/Search')
     },
     {
       path: '/product',
-      name: 'Product',
-      component: Product
+      component: () => import('@/components/Product')
     },
     {
       path: '/cart',
-      name: 'Cart',
-      component: Cart
+      component: () => import('@/components/Cart')
     },
     {
       path: '/confirm',
-      name: 'Confirm',
-      component: Confirm
+      component: () => import('@/components/Confirm')
     },
     {
       path: '/pay',
-      name: 'Pay',
-      component: Pay
+      component: () => import('@/components/Pay')
     },
     {
       path: '/order',
-      name: 'Order',
-      component: Order
+      component: () => import('@/components/Order')
     },
     {
       path: '/detail',
-      name: 'OrderDetail',
-      component: OrderDetail
+      component: () => import('@/components/OrderDetail')
     },
     {
       path: '/address',
-      name: 'Address',
-      component: Address
+      component: () => import('@/components/Address')
     },
     {
       path: '/user',
-      name: 'User',
-      component: User
+      component: () => import('@/components/User')
     },
     {
       path: '/login',
-      name: 'Login',
-      component: Login
+      component: () => import('@/components/Login')
     },
     {
       path: '/register',
-      name: 'Register',
-      component: Register
+      component: () => import('@/components/Login')
     }
   ]
 })

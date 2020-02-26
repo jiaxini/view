@@ -1,20 +1,19 @@
-import { P } from '../../common/Http';
-import Vue from 'vue';
+import { login } from '../../common/Api';
 export const USERINFO = 'user_info';
 
 const state = {
-    user: {}
+    user: sessionStorage.getItem(USERINFO) || {}
 }
 
 const getters = {
     [USERINFO](){
-        return state.user
+        return state.user || sessionStorage.getItem(USERINFO)
     }
 }
 
 const actions = {
     async [USERINFO]({commit}, params){
-        P(params.url, params.user).then(d => {
+        login(params).then(d => {
             commit(USERINFO, d.data)
         })
     }
@@ -23,6 +22,7 @@ const actions = {
 const mutations = {
     [USERINFO](state, user){
         state.user = user
+        sessionStorage.setItem(USERINFO, user)
     }
 }
 
